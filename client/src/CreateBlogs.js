@@ -4,7 +4,7 @@ import { ThemeContext } from "styled-components"
 
 function CreateBlogs(){
     const theme=useContext(ThemeContext)
-    console.log(theme.userStuff[0]?.id)
+   
 const [title, setTiltle]=useState('')
 const [aiTags, setAiTags]=useState([])
     const [blog, setBlog]=useState('')
@@ -26,7 +26,7 @@ const [showAiTags, setShowAiTags]=useState(false)
     function submitBlog(e){
 
 
-console.log(id)
+
 if (theme.editBlog){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -48,7 +48,7 @@ if (theme.editBlog){
     if (res.ok){
         res.json().then((res)=>{
            
-            console.log(res + 'ppp')
+      
            theme.setAllBlogs([res, ...theme.allBlogs])
            theme.setAUser([res])
            setShowAiTags(true)
@@ -162,7 +162,7 @@ body: JSON.stringify(
 })
 .then(res=>res.json())
 .then(res=>{
-console.log(res)
+
 theme.setAUser([res])
     history.push('/author')
 })
