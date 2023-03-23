@@ -87,7 +87,7 @@ fetch(`/posts`,{
                         console.log('lll') 
                         setShowAiTags(true)
                        theme.setAUser([res])
-                  console.log(theme.aUser)
+                
                     })
                 }
                 else {
