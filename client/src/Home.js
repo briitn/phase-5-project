@@ -129,7 +129,7 @@ fetch('/views',{
 const filteredAuthor=eArray.filter(item=>{return item.username!==theme.currentUser})
 const authors=[...new Set(filteredAuthor)]
 
-console.log(authors)
+
 return (
     <Fragment>
          
