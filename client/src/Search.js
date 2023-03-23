@@ -5,7 +5,7 @@ import Topnav from "./Topnav"
 function Search(){
     const theme=useContext(ThemeContext)
 
-console.log(theme.filteredBlogs)
+
 useEffect(()=>{if (theme.filteredBlogs.length===0){
     
     fetch('/search')
