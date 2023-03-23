@@ -21,8 +21,8 @@ const history=useHistory()
     const [tagValue, setTagValue]=useState('')
 
 const [showAiTags, setShowAiTags]=useState(false)
-    console.log(tags.length)
-console.log(theme.editBlog)
+
+
     function submitBlog(e){
 
 
@@ -56,7 +56,7 @@ if (theme.editBlog){
     }
     else {
         res.json().then((err) => {
-            console.log(err)
+      
        alert(err.errors)})
 }
 
