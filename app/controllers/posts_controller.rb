@@ -5,12 +5,12 @@ class PostsController < ApplicationController
         post=@current_user.posts.create!(post_params)
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
-              arr=[]
+             
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and separate them with commas and do not number them: #{params[:blog]} "
                chatbot = Chatbot.new('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')
                response = chatbot.respond_to(message)
-            
-               r=response["choices"].map { |c| c["text"].strip.split(',') }
+            arr=response.dig("choices", 0, "message", "content")
+               r=arr.strip.split(',') 
                render json: {:post=>post, :response=>r}
                byebug
            end;
