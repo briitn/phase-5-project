@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
-import Topnav from "./Topnav"
-import Tags from "./Tags"
+
 function CreateBlogs(){
     const theme=useContext(ThemeContext)
     console.log(theme.userStuff[0]?.id)
@@ -93,7 +92,7 @@ fetch(`/posts`,{
                 }
                 else {
                     res.json().then((err) => {
-                        console.log(err)
+                
                    alert(err.errors)})
     }
 }) } 
