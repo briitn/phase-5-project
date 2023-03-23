@@ -1,5 +1,5 @@
-import { Fragment, useCallback, useContext } from "react"
-import { useState, useEffect,  } from "react"
+import { Fragment, useContext } from "react"
+
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
@@ -125,7 +125,7 @@ fetch('/views',{
     )
 })
 
-console.log(theme.currentUser)
+
 const filteredAuthor=eArray.filter(item=>{return item.username!==theme.currentUser})
 const authors=[...new Set(filteredAuthor)]
 
