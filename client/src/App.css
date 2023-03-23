@@ -6,11 +6,409 @@
   height: 40vmin;
   pointer-events: none;
 }
+#signIn{
 
+  position: relative;
+
+  left: 70px;
+}
+#search{
+  position: relative;
+  background-color: transparent;
+
+
+}
+#signUp{
+  position: relative;
+
+  right: -300px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+.container{
+  border: 2px solid hwb(0 5% 95%);
+
+  border-radius: 1px;
+  padding: 10px;
+  margin: 10px 0;
+
+}
+.cont{
+  border: none;
+width:fit-content;
+height:fit-content;
+  border-radius: 1px;
+  padding: 10px;
+  margin: 10px 0;
+
+}
+.bottom{
+  position: relative;
+  left: 100px;
+}
+.forCs{
+  
+  position: absolute;
+width: 200px;
+ height:fit-content;
+
+top: 400px;
+  left: 930px;
+border-radius: 10px;
+border: 0.1px solid #000000;
+padding: 50px;
+
+
+}
+.appName {
+  padding-top: 40px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+}
+#write{
+  position: relative;
+left: 100px;
+bottom:15px
+}
+#profile{
+  position: relative;
+  bottom: 20px;
+left: 500px;
+
+}
+.authors{
+  position: relative;
+  top: 0px;
+  left: 10px;
+}
+.comments{
+  border: 2px solid #111010;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+
+}
+.sc{   
+  text-align: center;
+  padding-top: 15px;}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.box{
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 16px;
+
+position: relative;
+
+top: -470px;
+right: 305px;
+  max-height: auto;
+}
+
+#logout{
+  position: relative;
+  background-color: transparent;
+  bottom: 15px;
+  left: 300px;
+  border: none;
+}
+
+.sidenav {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  width: 300px;
+ height: fit-content;
+  top: 0;
+  left: 1050px;
+}
+.sidenav2{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+width: 15%;
+ height: 300px;;
+bottom: 0px;
+  left: 1050px;
+border-radius: 10px;
+border: 0.1px solid #000000;
+padding: 100px;
+}
+.globe{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+}
+body{
+
+font-family: monospace;
+
+}
+.dropdown {
+  position: relative;
+  right: 400px;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background-color: #f6f6f6;
+  min-width: 230px;
+  border: 1px solid #ddd;
+  z-index: 1;
+}
+
+
+
+.tag{
+  font-size: 12px;
+  position: relative;
+  bottom: 10px;
+}
+.hTag{
+  background-color: #c3fb40;
+  border: #bd3737;
+  
+}
+
+.popup{
+  position: fixed;
+  left: 45%;
+  top: 5%;
+  transform: translate(-50%, 5%);
+  border: 3px solid #999999;
+  z-index: 9;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.dox{
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 16px;
+width: 70%;
+position: relative;
+
+top: 0px;
+right: 275px;
+  max-height: auto;
+}
+.dox2{
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 16px;
+width: 100%;
+max-height: auto;
+position: relative;
+right: 150px;
+
+}
+#channel{position: relative;
+left: -500px;
+top: 20px;}
+.channel2{
+  position: relative;
+  left: 500px;
+}
+#channel3{
+  margin: auto;
+  width: 100%;
+  border: 1px solid rgb(12, 12, 12);
+  padding: 10px;
+  text-align: center;
+}
+.topnav {
+  height: 50px;
+
+  border: 0.1px solid #111010;
+
+
+  text-align: center;
+}
+
+.topnav input[type=text] {
+position: relative;
+  top:20px;
+  border: none;
+
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+textarea::-webkit-scrollbar{
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb{
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.title{
+  width: fit-content;
+
+  height: fit-content;
+
+  font-size: 50px;
+  font-weight: 600;
+  color: #2d2d2d;
+
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.article{
+    width: 100%;
+    min-height: 100px;
+    height: auto;
+    outline: none;
+    font-size: 50px;
+    font-weight: 600;
+    color: #2d2d2d;
+    resize: none;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.title::placeholder,
+.article::placeholder{
+    color: #2d2d2d;
+}
+.pubBtn{
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.button{
+  border: none;
+
+  background-color:rgb(179, 175, 175);
+  outline: none;
+  cursor: pointer;
+}
+.article{
+    height: 500px;
+    font-size: 20px;
+    margin-top: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    padding-bottom: 100px;
+    white-space: pre-wrap;
+}
+
+.small {
+  width: 30%;
+  background: rgb(253, 251, 251);
+  height: 100%;
+}
+
+
+
+.aBlog {
+  height: 100%;
+  width: 100%;
+}
+.username{ width: 76%;
+  color: rgb(38, 50, 56);
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background: rgba(136, 126, 126, 0.04);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  box-sizing: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.02);
+  margin-bottom: 50px;
+  margin-left: 46px;
+  text-align: center;
+  margin-bottom: 27px;
+  font-family: 'Ubuntu', sans-serif;}
+textarea {
+  width: 100%;
+  height: 100vh;
+}
+.profilePic{
+  vertical-align: middle;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+}
+.profilePic2{
+  vertical-align: middle;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  position: relative;
+  left: 500px;
+}
+.iComment{
+  width: fit-content;
+  height:fit-content;
+}
+#x{
+  position: relative;
+  bottom: 50px;
+  right: 50px;
+}
+.submit {
+  cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #ea77db, #E040FB);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 35%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+.fox{
+  background-color: #FFFFFF;
+  width: 400px;
+  height: 500px;
+  margin: 7em auto;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+.form{
+  padding-top: 40px;
+
+}
+.sign {
+  padding-top: 40px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
 }
 
 .App-header {
