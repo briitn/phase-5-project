@@ -8,7 +8,7 @@ const theme=useContext(ThemeContext)
     const history= useHistory()
    
     const [username, setUsername]=useState('')
-console.log(theme.fromAblog)
+
     const [password, setPassword]=useState('')
 
     function changeSubmit(e){
