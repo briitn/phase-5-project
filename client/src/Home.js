@@ -32,7 +32,7 @@ const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
 <p  onClick={()=>{theme.setReadBlog([item])
 
 
-item.tags.length!=0?theme.setTagName(item.tags[0].name): theme.setTagName()
+item.tags.length!==0?theme.setTagName(item.tags[0].name): theme.setTagName()
 
 fetch('/views',{
     method:"PATCH",
@@ -89,7 +89,7 @@ history.push('/author')
 <p>👁{item.views}</p>
 <p  onClick={()=>{theme.setReadBlog([item])
 
-item.tags.length!=0?theme.setTagName(item.tags[0].name):theme.setTagName()
+item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
 
 fetch('/views',{
     method:"PATCH",
@@ -135,7 +135,7 @@ return (
          
  <header><Topnav/></header>
 
-<img src='https://img.freepik.com/premium-vector/globe-silhouette-america-continent-map-earth-latitude-longitude-line-grid-vector_8589-692.jpg' className="globe"/>
+<img src='https://img.freepik.com/premium-vector/globe-silhouette-america-continent-map-earth-latitude-longitude-line-grid-vector_8589-692.jpg' className="globe" alt='white and black globe'/>
     <div className="sidenav">
     <div className="cont">
         <b>Popular Topics</b>
@@ -181,7 +181,8 @@ return (
                             history.push('/author')
                          })
      }}> 
-   <img src={item.image_url} className='profilePic'/> 
+   <img src={item.image_url} className='profilePic'
+   alt='author profile'/> 
        <em >{item.username}</em>
             <p>{item.bio}</p>
         </div>)
