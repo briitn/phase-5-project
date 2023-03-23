@@ -7,7 +7,7 @@ import Blog from './Blog';
 import Signup from './Signup';
 import Login from './Login';
 import Author from './Author';
-import { useHistory } from 'react-router-dom';
+
 import {Route, Switch} from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect, Fragment} from 'react';
@@ -110,7 +110,7 @@ useEffect(()=>{
   })
   .then(res=>res.json())
   .then(res=>{
-console.log(res.user)
+
 setRecommendedStuff(res)
   })
 
