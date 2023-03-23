@@ -83,8 +83,7 @@ fetch(`/posts`,{
                 if (res.ok){
                     res.json().then((res)=>{
                         setAiTags(res.response)
-                        console.log(res) 
-                        console.log('lll') 
+                   
                         setShowAiTags(true)
                        theme.setAUser([res])
                 
