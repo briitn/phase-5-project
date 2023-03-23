@@ -23,7 +23,7 @@ const history=useHistory()
 
 const [showAiTags, setShowAiTags]=useState(false)
     console.log(tags.length)
-
+console.log(theme.editBlog)
     function submitBlog(e){
 
 
@@ -83,8 +83,9 @@ fetch(`/posts`,{
             .then((res)=>{
                 if (res.ok){
                     res.json().then((res)=>{
-                        setAiTags(res.response[0])
-                        console.log(res)
+                        setAiTags(res.response)
+                        console.log(res) 
+                        console.log('lll') 
                         setShowAiTags(true)
                        theme.setAUser([res])
                   console.log(theme.aUser)
@@ -100,7 +101,7 @@ fetch(`/posts`,{
 
 }
 
-console.log(tags)
+console.log(aiTags)
 const mapAiTags=aiTags?.slice(0,3).map(item=>{
     return(<div key={Math.random()} >
       
