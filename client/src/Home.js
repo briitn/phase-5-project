@@ -21,7 +21,7 @@ const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     return(<div key={item.id} >
       <div className="cont">
        <span>  <img src={item.user.image_url} 
-            alt='user image'
+            alt='authours proifile picture'
             className='profilePic'/>
         <em>{item.user.username}</em>
       
