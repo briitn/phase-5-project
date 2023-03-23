@@ -114,7 +114,7 @@ useEffect(()=>{
 setRecommendedStuff(res)
   })
 
-},[allBlogs])
+},[tagName])
 
 
 
