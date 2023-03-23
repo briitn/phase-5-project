@@ -6,13 +6,13 @@ function Signup(){
     const theme=useContext(ThemeContext)
 
     const[newUsername, setNewUsername]=useState('')
-    console.log(newUsername)
+  
       const [imageUrl, setImageUrl]=useState('')
       const [password, setPassword]
       =useState('')
      const [bio, setBio]=useState('')
      const [loading, setLoading]=useState(false)
-     console.log(theme.fromAblog)
+  
      const history=useHistory()
 
       function changeSubmit(e){
@@ -43,25 +43,25 @@ function Signup(){
       }
       
       function changePass(e){
-  console.log(password)
+
           setPassword(e.target.value)
   
       }
   
       function changeUser(e){
-  console.log(newUsername)
+
           setNewUsername(e.target.value)
         
       }
   
       function changeProfilePic(e){
-        console.log(imageUrl)
+     
           setImageUrl(e.target.value)
       }
 
       function changeBio(e){
         setBio(e.target.value)
-        console.log(bio)
+      
       }
       return (
         <Fragment>
