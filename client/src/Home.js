@@ -21,7 +21,7 @@ const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     return(<div key={item.id} >
       <div className="cont">
        <span>  <img src={item.user.image_url} 
-            alt='authours proifile picture'
+            alt='authours proifile'
             className='profilePic'/>
         <em>{item.user.username}</em>
       
@@ -31,7 +31,7 @@ const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
 
 <p  onClick={()=>{theme.setReadBlog([item])
 
-let tag
+
 item.tags.length!=0?theme.setTagName(item.tags[0].name): theme.setTagName()
 
 fetch('/views',{
