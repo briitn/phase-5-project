@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useContext, useEffect } from "react"
+import { Fragment,  useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
@@ -11,7 +11,7 @@ function Author(){
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
 })
-    }},[])
+    }},[theme])
 const holdPost=[]
 let id
 let username
@@ -25,7 +25,7 @@ const history=useHistory()
         return(
             <div key={item.id}>
                 <img src={item.image_url} 
-                alt='user image'
+                alt='user profile'
                 className='profilePic'/>
                 <h2>{item.username}</h2>
         
@@ -67,14 +67,14 @@ fetch('/views',{
 
 history.push('/blog')
 }}>read more</p>
-{id==theme.userId?<span><p onClick={(e)=>{theme.setEditBlog(item)
+{id===theme.userId?<span><p onClick={(e)=>{theme.setEditBlog(item)
 history.push('/createBlogs')}}>edit</p>
 <p onClick={(e)=>{
    if( window.confirm("Are you sure you want to delete your post?")){
     fetch(`posts/${item.id}`,
     {
         method: "DELETE"
-    })   .then(res=>res.json())
+    }).then(res=>res.json())
     .then(res=>{theme.setAUser([res])
     console.log(res)})
  }
