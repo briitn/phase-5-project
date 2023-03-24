@@ -15,7 +15,7 @@ useEffect(()=>{if (theme.readBlog===undefined){
     .then(res=>res.json())
 .then(res=>{theme.setReadBlog([res])
 })
-}},[])
+}},[theme])
 useEffect(()=>{
     fetch("/comments")
     .then(res=>res.json())
@@ -33,7 +33,7 @@ useEffect(()=>{
 let id
 const mapBlog=theme.readBlog?.map(item=>{
 id=item.id
-item.tags.length!=0?theme.setTagName(item.tags[0].name):console.log('l')
+item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
 
     return (
         <div key={item.id} >
@@ -52,7 +52,7 @@ item.tags.length!=0?theme.setTagName(item.tags[0].name):console.log('l')
             alt='userImage' className="profilePic"/>
             <b >{item.user.username}</b>
         </span>  
-          <span> <h1>{item.title}  </h1>  { item.tags.length!=0?<div> {item.tags.map(item=>{
+          <span> <h1>{item.title}  </h1>  { item.tags.length!==0?<div> {item.tags.map(item=>{
     return(<div className="blogBadge" id={item.id}><p className="tag">🏷{item.name}</p></div>)})}</div>:<div></div>}  </span>   
 <h3 className='dox2'> {item.blog}</h3>
 <div >{!showComments?<span className="pubBtn" >
@@ -103,7 +103,7 @@ history.push('/signup')
 
 
 
-  })  .then(res=>res.json())
+  }).then(res=>res.json())
   .then(res=>{
   setComments([res,...comments])
   })}}>Sumbit</button>:<p></p>}
