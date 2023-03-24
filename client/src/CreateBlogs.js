@@ -8,17 +8,63 @@ function CreateBlogs(){
 const [title, setTiltle]=useState('')
 const [aiTags, setAiTags]=useState([])
     const [blog, setBlog]=useState('')
+    const [saveBlog, setSaveBlog]=useState('')
+
+   setTimeout(() => {
+    if (saveBlog!==blog){
+        setSaveBlog(blog)
+        fetch('/save',{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:  JSON.stringify(
+                {
+                  
+                    
+        
+                    blog
+                
+                   
+                }
+            )
+        })  
+      console.log('gg')
+   }}, 3000);
+    
 const [id, setId]=useState()
  const[uTag, setUTag]=useState('')
+ console.log(saveBlog)
+ const ser=blog
+
 useEffect(()=>{if (theme.editBlog){
     setId(theme.editBlog.id)
 setTiltle(theme.editBlog.title)
 setBlog(theme.editBlog.blog)
-}},[])
+}},[theme.editBlog])
+
+useEffect(()=>{
+    fetch('/getBlog')
+    .then((res)=>{
+        if (res.ok){
+            res.json().then((res)=>{
+               
+          
+               setBlog(res.arr)
+            })
+        }
+        else {
+            res.json().then((err) => {
+          
+           alert(err.errors)})
+    }
+    
+        })
+    
+  
+},[])
 const history=useHistory()
-    const [canCreate, setCanCreate]=useState(false)
+
     const [tags,setTags]=useState([])
-    const [tagValue, setTagValue]=useState('')
+
 
 const [showAiTags, setShowAiTags]=useState(false)
 
@@ -99,7 +145,7 @@ fetch(`/posts`,{
 
 }
 
-console.log(aiTags)
+
 const mapAiTags=aiTags?.slice(0,3).map(item=>{
     return(<div key={Math.random()} >
       
@@ -136,7 +182,9 @@ onClick={(e)=>{
                 }}className="title"></textarea>
                 </span>
                 <div><textarea
-                  value={blog} onChange={(e)=>{setBlog(e.target.value)}} placeholder='Write' className='article'></textarea>
+                  value={blog} onChange={(e)=>{setBlog(e.target.value)
+                
+                  }} placeholder='Write' className='article'></textarea>
                <span className="pubBtn"><button className="button" onClick={submitBlog}>Publish</button></span> 
                </div> 
          {showAiTags?<div className="popup"> 
