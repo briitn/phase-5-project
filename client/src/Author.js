@@ -18,10 +18,10 @@ let username
 const history=useHistory()
     const mapUserStuff=theme.aUser?.map(item=>{
         holdPost.unshift(item.posts)
-        console.log(item)
+      
         id=item.id
         username=item.username
-        console.log(id)
+      
         return(
             <div key={item.id}>
                 <img src={item.image_url} 
