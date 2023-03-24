@@ -29,10 +29,10 @@ function Topnav(){
                </span>
     )
     })
-    const showSearch= theme.allTags.filter(item=>{
+    const showSearch= theme.allTags?.filter(item=>{
         return item.name.includes(theme.findBlog)
       })
-      const showSearch2= theme.allUsers.filter(item=>{
+      const showSearch2= theme.allUsers?.filter(item=>{
         return item.username.includes(theme.findBlog)
       })
    return( <div className="topnav">

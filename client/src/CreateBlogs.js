@@ -4,63 +4,30 @@ import { ThemeContext } from "styled-components"
 
 function CreateBlogs(){
     const theme=useContext(ThemeContext)
-   
+
+const getEdit=localStorage.getItem('editingBlog')
+const getTitle=localStorage.getItem('editingTitle')
+const getId=localStorage.getItem('id')
 const [title, setTiltle]=useState('')
 const [aiTags, setAiTags]=useState([])
     const [blog, setBlog]=useState('')
     const [saveBlog, setSaveBlog]=useState('')
+console.log(getEdit)
 
-   setTimeout(() => {
-    if (saveBlog!==blog){
-        setSaveBlog(blog)
-        fetch('/save',{
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:  JSON.stringify(
-                {
-                  
-                    
-        
-                    blog
-                
-                   
-                }
-            )
-        })  
-   
-   }}, 3000);
-    
+
 const [id, setId]=useState()
  const[uTag, setUTag]=useState('')
 
 
 
-useEffect(()=>{if (theme.editBlog){
-    setId(theme.editBlog.id)
-setTiltle(theme.editBlog.title)
-setBlog(theme.editBlog.blog)
-}},[theme.editBlog])
+useEffect(()=>{if (getEdit){
+    console.log('ll')
 
-useEffect(()=>{
-    fetch('/getBlog')
-    .then((res)=>{
-        if (res.ok){
-            res.json().then((res)=>{
-               
-          
-               setBlog(res.arr)
-            })
-        }
-        else {
-            res.json().then((err) => {
-          
-           alert(err.errors)})
-    }
-    
-        })
-    
-  
-},[])
+    setId(getId)
+setTiltle(getTitle)
+setBlog(getEdit)
+}},[])
+
 const history=useHistory()
 
     const [tags,setTags]=useState([])
@@ -69,10 +36,7 @@ const history=useHistory()
 const [showAiTags, setShowAiTags]=useState(false)
 
 
-    function submitBlog(e){
-
-
-
+function submitBlog(e){
 if (theme.editBlog){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -183,6 +147,7 @@ onClick={(e)=>{
                 </span>
                 <div><textarea
                   value={blog} onChange={(e)=>{setBlog(e.target.value)
+                   localStorage.setItem('editingBlog', e.target.value)
                 
                   }} placeholder='Write' className='article'></textarea>
                <span className="pubBtn"><button className="button" onClick={submitBlog}>Publish</button></span> 

@@ -6,7 +6,7 @@ function Login(){
 
 const theme=useContext(ThemeContext)
     const history= useHistory()
-   
+    const fromBlog= localStorage.getItem('fromBlog')
     const [username, setUsername]=useState('')
 
     const [password, setPassword]=useState('')
@@ -29,7 +29,9 @@ const theme=useContext(ThemeContext)
             if (res.ok){
                 res.json().then((res)=>{theme.setUserStuff([res])
                     theme.setIsLoggedIn(true)
-                   history.push('/')
+                   
+                    fromBlog?history.push('/blog'):history.push('/')
+                localStorage.clear()
                  
                 })
             }
@@ -56,7 +58,9 @@ const theme=useContext(ThemeContext)
     }
     return (
         <Fragment>
-             <header><h1 onClick={()=>{history.push('/')}}>Channel🌐</h1></header>
+             <header><h1 onClick={()=>{
+                        localStorage.clear()
+                history.push('/')}}>Channel🌐</h1></header>
 
 
         <div className='fox'>

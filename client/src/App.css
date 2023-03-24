@@ -208,15 +208,17 @@ right: 275px;
   max-height: auto;
 }
 .dox2{
-  max-width: 750px;
+  max-width: 70%;
   margin: 40px auto;
   padding: 16px;
-width: 100%;
+
 max-height: auto;
 position: relative;
 right: 150px;
+white-space: pre-wrap
 
 }
+
 #channel{position: relative;
 left: -500px;
 top: 20px;}

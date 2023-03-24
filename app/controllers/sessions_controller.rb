@@ -29,15 +29,8 @@ def destroy
     session.delete :user_id
     head :no_content
 end
-def save_blog
-    session[:blog]=params[:blog]
 
- 
-    render json: {arr: session[:blog] }
-end
-def get_saved_blog
-    render json: {arr: session[:blog] }
-end
+
 def find_author
     user=User.find(session[:author_id])
     render json: user

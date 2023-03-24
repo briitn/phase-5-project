@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :drafts
   resources :tags
   resources :comments
   resources :posts

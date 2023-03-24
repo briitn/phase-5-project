@@ -6,7 +6,7 @@ function Signup(){
     const theme=useContext(ThemeContext)
 
     const[newUsername, setNewUsername]=useState('')
-  
+  const fromBlog= localStorage.getItem('fromBlog')
       const [imageUrl, setImageUrl]=useState('')
       const [password, setPassword]
       =useState('')
@@ -29,11 +29,12 @@ function Signup(){
   
               })
           }).then(r=>{if (r.ok) {
-              
+         
               setLoading(true)
               setTimeout(() => {
                 theme.setIsLoggedIn(true)
-                  history.push('/')
+                fromBlog?history.push('/blog'):history.push('/')
+            localStorage.clear()
               }, 1000); 
               r.json();
             } else {
@@ -65,10 +66,13 @@ function Signup(){
       }
       return (
         <Fragment>
-            <header><h1 onClick={()=>{history.push('/')}}>Channel🌐</h1></header>
+            <header><h1 onClick={()=>{
+                      localStorage.clear()
+            history.push('/')
+              }}>Channel🌐</h1></header>
           <div className='fox'>
         
-        { theme.fromAblog? <div> <h2>Create an account to comment</h2></div>:null}
+        { fromBlog? <div> <h2>{fromBlog}</h2></div>:null}
   
           <form onSubmit={changeSubmit} className="form">
               <FormField>

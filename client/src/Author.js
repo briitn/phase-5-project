@@ -63,11 +63,21 @@ fetch('/views',{
         }
     )
 
-})
+}) .then(res=>res.json())
+.then(res=>{
 
-history.push('/blog')
+console.log([res])
+    theme.setReadBlog([res])
+    console.log(theme.readblog) 
+    history.push('/blog')      
+             })
+
+
 }}>read more</p>
-{id===theme.userId?<span><p onClick={(e)=>{theme.setEditBlog(item)
+{id===theme.userId?<span><p onClick={(e)=>{
+    localStorage.setItem('editingBlog', JSON.stringify(item.blog))
+    localStorage.setItem('editingTitle', JSON.stringify(item.title))
+    localStorage.setItem('id', JSON.stringify(item.id)  )
 history.push('/createBlogs')}}>edit</p>
 <p onClick={(e)=>{
    if( window.confirm("Are you sure you want to delete your post?")){

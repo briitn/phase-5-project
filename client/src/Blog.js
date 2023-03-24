@@ -4,18 +4,19 @@ import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Blog(){
 
+const tester=localStorage.getItem
 const theme=useContext(ThemeContext)
-console.log(theme.allblog)
+console.log(theme.readBlog)
 const [comments,setComments]=useState()
 const [comment, setComment]=useState('')
 const history=useHistory()
 const [showComments, setShowComments]=useState(false)
-useEffect(()=>{if (theme.readBlog===undefined){
+useEffect(()=>{
     fetch('/aBlog')
     .then(res=>res.json())
 .then(res=>{theme.setReadBlog([res])
 })
-}},[theme])
+},[])
 useEffect(()=>{
     fetch("/comments")
     .then(res=>res.json())
@@ -33,7 +34,7 @@ useEffect(()=>{
 let id
 const mapBlog=theme.readBlog?.map(item=>{
 id=item.id
-item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
+item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
 
     return (
         <div key={item.id} >
@@ -79,7 +80,12 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
 
        alert(err.errors)})
 }
-}) }>❤️{item.likes}</p>:<p>❤️{item.likes}</p>}
+}) }>❤️{item.likes}</p>:<p onClick={(e)=>{ 
+    if (theme.isLoggedIn===false){
+theme.setFromAblog(true)
+localStorage.setItem('fromBlog', "Create an account to like post" )
+history.push('/signup')
+}}}>❤️{item.likes}</p>}
 <em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:
 <div  className="forCs">
 <button id='x' onClick={()=>{setShowComments(false)}}>x</button>
@@ -88,6 +94,7 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
     placeholder='comment' onChange={(e)=>{setComment(e.target.value)}} onClick={(e)=>{ 
         if (theme.isLoggedIn===false){
 theme.setFromAblog(true)
+localStorage.setItem('fromBlog', "Create an account to comment" )
 history.push('/signup')
     }}}></textarea>
    {comment?<button onClick={()=>{ fetch('/comments',{

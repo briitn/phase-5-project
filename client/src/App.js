@@ -13,6 +13,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect, Fragment} from 'react';
 import { ThemeContext } from 'styled-components';
 function App() {
+
+  localStorage.setItem('l', 'o')
+const test=localStorage.getItem('l')
+console.log(test)
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -25,7 +29,7 @@ function App() {
 
 
   const [allBlogs, setAllBlogs]=useState([])
-  const [readBlog, setReadBlog]=useState()
+  const [readBlog, setReadBlog]=useState([])
   const [editBlog, setEditBlog]=useState()
   const [recommendedStuff, setRecommendedStuff]=useState([])
   const [userSearched,setUserSearched]=useState('')

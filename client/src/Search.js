@@ -13,7 +13,7 @@ useEffect(()=>
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
 (res)})
- }},[theme])
+ }},[])
 
 const history=useHistory()
 const mapBlogs=theme.filteredBlogs?.map(item=>{

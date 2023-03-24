@@ -14,7 +14,7 @@ theme.allTags.sort((a, b) =>b.posts.length- a.posts.length);
 const history=useHistory()
 
 const eArray=[]
-
+localStorage.clear()
 
 const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     eArray.push(item.user)
@@ -50,7 +50,7 @@ fetch('/views',{
     if (res.ok){
         res.json().then((res)=>{
 
-            theme.setAllBlogs(res)
+      
             history.push('/blog')
         })
     }
@@ -108,7 +108,7 @@ fetch('/views',{
     if (res.ok){
         res.json().then((res)=>{
             
-            theme.setAllBlogs(res)
+        
 
       history.push('/blog')
         })
