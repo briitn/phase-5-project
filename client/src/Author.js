@@ -4,13 +4,13 @@ import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Author(){
     const theme=useContext(ThemeContext)
-    console.log(theme.aUser)
+
     
  useEffect(()=> {if (theme.aUser.length===0){
         fetch('/author')
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
-    console.log(res)})
+})
     }},[])
 const holdPost=[]
 let id
