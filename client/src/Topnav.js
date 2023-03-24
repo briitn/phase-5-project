@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 
@@ -6,7 +6,7 @@ import { ThemeContext } from "styled-components"
 function Topnav(){
     const theme=useContext(ThemeContext)
     const history=useHistory()
-    const [showDrop, setShowDrop]=useState(false)
+
     const mapUserStuff=theme.userStuff.map(item=>{
         return(
             <span key={item.id} id='profile' onClick={
@@ -24,7 +24,7 @@ function Topnav(){
                  })
             }}>
                 <img src={item.image_url} 
-                alt='user image'
+                alt='user profile'
                 className='profilePic'/>
                </span>
     )
@@ -56,8 +56,9 @@ title: theme.findBlog
 if (res.ok){
 res.json().then((res)=>{
 theme.setFilteredBlogs(res)
-theme.setFindblog()
 theme.setUserSearched(theme.findBlog)
+theme.setFindblog()
+
 history.push('/search')
 })
 }
@@ -103,7 +104,7 @@ return(<div key={item.id} >
         .then(res=>{
             theme.setUserSearched(item.name)
            theme.setFilteredBlogs(res)  
-           
+           theme.setFindblog()
           history.push('/search') 
              })}}>
 🏷{item.name}
@@ -128,7 +129,7 @@ return(
                           history.push('/author')
                        })
    }}>
-   <img src={item.image_url} className='profilePic'/>
+   <img src={item.image_url} className='profilePic' alt="user profile"/>
      <em>{item.username}</em>  
 
    </div>
