@@ -27,12 +27,12 @@ const [aiTags, setAiTags]=useState([])
                 }
             )
         })  
-      console.log('gg')
+   
    }}, 3000);
     
 const [id, setId]=useState()
  const[uTag, setUTag]=useState('')
- console.log(saveBlog)
+
  const ser=blog
 
 useEffect(()=>{if (theme.editBlog){

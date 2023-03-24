@@ -1,18 +1,19 @@
 class PostsController < ApplicationController
     skip_before_action :authorize, only: [:index, :search, :shoe, :update]
     def create
-        
+        session.delete :blog
         post=@current_user.posts.create!(post_params)
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
              
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and separate them with commas and do not number them: #{params[:blog]} "
-               chatbot = Chatbot.new('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')
+               chatbot = Chatbot.new('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')
                response = chatbot.respond_to(message)
-            arr=response.dig("choices", 0, "message", "content")
-               r=arr.strip.split(',') 
-               render json: {:post=>post, :response=>r}
-               byebug
+       
+            arr=response.dig("choices", 0, "message", "content").split(',') 
+          
+               render json: {:post=>post, :response=>arr}
+        
            end;
 
 def index
@@ -53,6 +54,7 @@ if params[:tag]
  
 end
 if params[:blog]
+    session.delete :blog
   user=User.find_by(id: session[:user_id]);
 
    new_post= post.update!(blog: params[:blog],title: params[:title]);
