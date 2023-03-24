@@ -33,7 +33,7 @@ const [aiTags, setAiTags]=useState([])
 const [id, setId]=useState()
  const[uTag, setUTag]=useState('')
 
- const ser=blog
+
 
 useEffect(()=>{if (theme.editBlog){
     setId(theme.editBlog.id)

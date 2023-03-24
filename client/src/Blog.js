@@ -76,7 +76,7 @@ item.tags.length!=0?theme.setTagName(item.tags[0].name):console.log('l')
     }
     else {
         res.json().then((err) => {
-            console.log(err)
+
        alert(err.errors)})
 }
 }) }>❤️{item.likes}</p>:<p>❤️{item.likes}</p>}
