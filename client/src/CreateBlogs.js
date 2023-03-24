@@ -157,7 +157,7 @@ const mapAiTags=aiTags?.slice(0,3).map(item=>{
     return (
         <div>
 <header id="channel3"><b onClick={()=>{history.push('/')}}>Channel🌐</b>
-<img src={theme.userStuff[0]?.image_url} className='profilePic2' 
+<img src={theme.userStuff[0]?.image_url} className='profilePic2' alt='user profile'
 onClick={(e)=>{
                    fetch(`/users/${theme.userStuff[0].id}`)
                    .then(res=>res.json())
@@ -196,7 +196,7 @@ onClick={(e)=>{
         
           <div className="container">
           {tags?.map(item=>{return (<small key={Math.random()}>🏷{item}</small>)})}
-          </div>{ tags.length!=0?<button onClick={(e)=>{fetch("/tags",
+          </div>{ tags.length!==0?<button onClick={(e)=>{fetch("/tags",
 {method:"POST",
 headers:{"Content-Type":"application/json"},
 body: JSON.stringify(
