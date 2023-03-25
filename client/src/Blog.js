@@ -4,7 +4,7 @@ import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Blog(){
 
-const tester=localStorage.getItem
+
 const theme=useContext(ThemeContext)
 console.log(theme.readBlog)
 const [comments,setComments]=useState()

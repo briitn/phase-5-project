@@ -9,7 +9,7 @@
 #signIn{
 
   position: relative;
-
+color: #E040FB;
   left: 70px;
 }
 #search{
@@ -20,7 +20,7 @@
 }
 #signUp{
   position: relative;
-
+  color: #E040FB;
   right: -300px;
 }
 @media (prefers-reduced-motion: no-preference) {

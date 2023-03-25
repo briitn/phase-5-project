@@ -46,80 +46,75 @@ const [isLoggedIn, setIsLoggedIn]=useState(false)
 const [filteredBlogs, setFilteredBlogs]=useState([])
 const [aUser, setAUser]=useState([])
 
-useEffect(()=>{
-  fetch("/loggedin")
-  .then((res)=>{
-      if (res.ok){
-          res.json().then((res)=>{
-        
-              setUserStuff([res])
-              setId(res.id)
-              setCurrentUser(res.username)
-        setIsLoggedIn(true)
-          })
+useEffect(() => {
+  async function checkLoggedInStatus() {
+    try {
+      const res = await fetch("/loggedin");
+      if (res.ok) {
+        const { id, username } = await res.json();
+        setUserStuff([{ id, username }]);
+        setId(id);
+        setCurrentUser(username);
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
-      else {
-          res.json().then((err) => {
-        
-              setIsLoggedIn(false)
-              })
+    } catch (err) {
+      console.error(err);
+      setIsLoggedIn(false);
+    }
   }
-  }) },[])
 
-    useEffect(()=>{
-      fetch("/users/")
-      .then(res=>res.json())
-      .then(res=>{
-  
-        setAllAuthors(res)
-      })},[])
- 
-useEffect(()=>{
-    fetch("/posts")
-.then(res=>res.json())
-.then(res=>{
+  checkLoggedInStatus();
+}, []);
 
+// Fetch all authors
+useEffect(() => {
+  async function fetchAuthors() {
+    const res = await fetch("/users/");
+    const authors = await res.json();
+    setAllAuthors(authors);
+  }
 
+  fetchAuthors();
+}, []);
 
+// Fetch all blogs and shuffle them
+useEffect(() => {
+  async function fetchBlogs() {
+    const res = await fetch("/posts");
+    const blogs = await res.json();
+    setAllBlogs(shuffleArray(blogs));
+  }
 
-  setAllBlogs(shuffleArray(res))
- 
+  fetchBlogs();
+}, [userStuff]);
 
-    })
-}, [userStuff])
+// Fetch all tags
+useEffect(() => {
+  async function fetchTags() {
+    const res = await fetch("/tags");
+    const tags = await res.json();
+    setAllTags(tags);
+  }
 
-useEffect(()=>{
-  fetch("/tags")
-.then(res=>res.json())
-.then(res=>{  setAllTags(res)
-  
+  fetchTags();
+}, [userStuff]);
 
-  })
-}, [userStuff])
+// Fetch recommended content based on tag name
+useEffect(() => {
+  async function fetchRecommended() {
+    const res = await fetch("/recommend", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: tagName }),
+    });
+    const recommended = await res.json();
+    setRecommendedStuff(recommended);
+  }
 
-
-
-useEffect(()=>{
-
-  fetch("/recommend",
-  {method:"POST",
-  headers:{"Content-Type":"application/json"},
-  body: JSON.stringify(
-      {
-    name: tagName
-      }
-  )
-  
-  
-  })
-  .then(res=>res.json())
-  .then(res=>{
-
-setRecommendedStuff(res)
-  })
-
-},[tagName])
-
+  fetchRecommended();
+}, [tagName]);
 
 
   return (
