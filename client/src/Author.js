@@ -6,12 +6,13 @@ function Author(){
     const theme=useContext(ThemeContext)
 
     
- useEffect(()=> {if (theme.aUser.length===0){
+ useEffect(()=> {
         fetch('/author')
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
+        console.log(res)
 })
-    }},[theme])
+    },[])
 const holdPost=[]
 let id
 let username

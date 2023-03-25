@@ -8,13 +8,13 @@ function Search(){
 console.log(theme.filteredBlogs)
 useEffect(()=>
 async function getSearch(){
-{if (theme.filteredBlogs.length===0){
+
     
     await fetch('/search')
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
-})}
- }},[theme])
+})
+ },[theme])
 
  console.log(theme.filteredBlogs)
 const history=useHistory()
