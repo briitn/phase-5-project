@@ -5,18 +5,16 @@ import Topnav from "./Topnav"
 function Search(){
     const theme=useContext(ThemeContext)
 
-console.log(theme.filteredBlogs)
-useEffect(()=>
-async function getSearch(){
 
+useEffect(()=>
+{if (theme.filteredBlogs.length===0){
     
-    await fetch('/search')
+    fetch('/searched')
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
-})
- },[theme])
+(res)})
+ }},[theme])
 
- console.log(theme.filteredBlogs)
 const history=useHistory()
 const mapBlogs=theme.filteredBlogs?.map(item=>{
   

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   post '/filtered', to: 'tags#tag_posts'
   post '/save', to: "sessions#save_blog"
   get '/getBlog', to: "sessions#get_saved_blog"
-  get '/search', to: 'sessions#search'
-  get '/author', to: "sessions#find_author"
+  get '/searched', to: 'sessions#search'
+  get '/authors', to: "sessions#find_author"
   post '/posts/search', to: 'posts#search'
   get '/aBlog', to: 'posts#shoe'
   post "users/login", to: "sessions#create"

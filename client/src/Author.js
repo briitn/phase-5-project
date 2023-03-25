@@ -7,7 +7,7 @@ function Author(){
 
     
  useEffect(()=> {
-        fetch('/author')
+        fetch('/authors')
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
         console.log(res)
