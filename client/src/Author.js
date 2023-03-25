@@ -20,7 +20,7 @@ const holdPost=[]
 let id
 let username
 const history=useHistory()
-    const mapUserStuff=theme.aUser?.map(item=>{
+    const mapUserStuff=theme.aUser.map(item=>{
         holdPost.unshift(item.posts)
       
         id=item.id
