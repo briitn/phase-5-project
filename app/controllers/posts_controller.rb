@@ -29,6 +29,7 @@ posts=Post.all
 end
 
 def update
+
     session.delete :blog
     post=Post.find(params[:id])
     session[:author_id]=post.user.id;
@@ -50,7 +51,7 @@ elsif params[:views]
 end
 if params[:tag]
     session[:tag_name]=params[:tag]
-    session.delete :author_id
+
  
 end
 if params[:blog]

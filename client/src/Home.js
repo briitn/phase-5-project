@@ -10,7 +10,6 @@ function Home(){
     theme.recommendedStuff?.sort((a, b) =>b.views- a.views);
 theme.allTags.sort((a, b) =>b.posts.length- a.posts.length);
 
-
 const history=useHistory()
 
 const eArray=[]

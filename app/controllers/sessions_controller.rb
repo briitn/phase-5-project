@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :authorize, only: [:search, :create] 
+    skip_before_action :authorize, only: [:search, :create, :find_author] 
 
     def create 
         user= User.find_by(username: params[:username])
@@ -33,6 +33,7 @@ end
 
 def find_author
     user=User.find(session[:author_id])
+
     render json: user
 end
 end

@@ -14,11 +14,14 @@ class UsersController < ApplicationController
           user=User.find(params[:id])
           session[:author_id]=user.id
           render json: user
+          
         
       end
 
       def shoe
+        
 user=User.find(session[:user_id])
+
 render json: user
       end
     private

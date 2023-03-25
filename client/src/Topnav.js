@@ -8,6 +8,7 @@ function Topnav(){
     const history=useHistory()
 
     const mapUserStuff=theme.userStuff.map(item=>{
+        console.log(item.username)
         return(
             <span key={item.id} id='profile' onClick={
                 (e)=>{

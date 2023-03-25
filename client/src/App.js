@@ -13,7 +13,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect, Fragment} from 'react';
 import { ThemeContext } from 'styled-components';
 function App() {
-
+let l
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -42,83 +42,89 @@ const [refresh, setRefresh]=useState(false)
 const[fromAblog, setFromAblog]=useState(false)
 const [isLoggedIn, setIsLoggedIn]=useState(false)
 const [filteredBlogs, setFilteredBlogs]=useState([])
-const [aUser, setAUser]=useState()
+const [aUser, setAUser]=useState([])
 
-useEffect(() => {
-  async function checkLoggedInStatus() {
-    try {
-      const res = await fetch("/loggedin");
-      if (res.ok) {
-        const { id, username } = await res.json();
-        setUserStuff([{ id, username }]);
-        setId(id);
-        setCurrentUser(username);
-        setIsLoggedIn(true);
-      } else {
-        setIsLoggedIn(false);
+
+useEffect(()=>{
+  fetch("/loggedin")
+  .then((res)=>{
+      if (res.ok){
+          res.json().then((res)=>{
+        
+              setUserStuff([res])
+              setId(res.id)
+              setCurrentUser(res.username)
+        setIsLoggedIn(true)
+          })
       }
-    } catch (err) {
-      console.error(err);
-      setIsLoggedIn(false);
-    }
+      else {
+          res.json().then((err) => {
+        
+              setIsLoggedIn(false)
+              })
   }
+  }) },[])
 
-  checkLoggedInStatus();
-}, []);
+    useEffect(()=>{
+      fetch("/users/")
+      .then(res=>res.json())
+      .then(res=>{
+  
+        setAllAuthors(res)
+      })},[])
+ 
+useEffect(()=>{
+    fetch("/posts")
+.then(res=>res.json())
+.then(res=>{
 
-// Fetch all authors
-useEffect(() => {
-  async function fetchAuthors() {
-    const res = await fetch("/users/");
-    const authors = await res.json();
-    setAllAuthors(authors);
-  }
 
-  fetchAuthors();
-}, []);
 
-// Fetch all blogs and shuffle them
-useEffect(() => {
-  async function fetchBlogs() {
-    const res = await fetch("/posts");
-    const blogs = await res.json();
-    setAllBlogs(shuffleArray(blogs));
-  }
 
-  fetchBlogs();
-}, [userStuff]);
+  setAllBlogs(shuffleArray(res))
+ 
 
-// Fetch all tags
-useEffect(() => {
-  async function fetchTags() {
-    const res = await fetch("/tags");
-    const tags = await res.json();
-    setAllTags(tags);
-  }
+    })
+}, [userStuff])
 
-  fetchTags();
-}, [userStuff]);
+useEffect(()=>{
+  fetch("/tags")
+.then(res=>res.json())
+.then(res=>{  setAllTags(res)
+  
 
-// Fetch recommended content based on tag name
-useEffect(() => {
-  async function fetchRecommended() {
-    const res = await fetch("/recommend", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: tagName }),
-    });
-    const recommended = await res.json();
-    setRecommendedStuff(recommended);
-  }
+  })
+}, [userStuff])
 
-  fetchRecommended();
-}, [tagName]);
+
+
+useEffect(()=>{
+
+  fetch("/recommend",
+  {method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body: JSON.stringify(
+      {
+    name: tagName
+      }
+  )
+  
+  
+  })
+  .then(res=>res.json())
+  .then(res=>{
+
+setRecommendedStuff(res)
+  })
+
+},[tagName])
+
 
 
   return (
   <ThemeContext.Provider value={{setRefresh:setRefresh, setAUser:setAUser, aUser:aUser,setFilteredBlogs:setFilteredBlogs, findBlog:findBlog, isLoggedIn:isLoggedIn, userStuff:userStuff,setFindblog:setFindblog, setIsLoggedIn:setIsLoggedIn, refresh:refresh,readBlog:readBlog,
   setUserStuff:setUserStuff, userId:id, allBlogs:allBlogs,
-  setAllBlogs:setAllBlogs, setReadBlog:setReadBlog, setId:setId, setTagName:setTagName, tagName:tagName,fromAblog:fromAblog, filteredBlogs:filteredBlogs,allTags:allTags, setFromAblog:setFromAblog,recommendedStuff:recommendedStuff, allUsers:allAuthors, setEditBlog:setEditBlog, editBlog:editBlog, currentUser:currentUser, userSearched: userSearched, setUserSearched:setUserSearched}}> <Fragment>
+  setAllBlogs:setAllBlogs, setReadBlog:setReadBlog, setId:setId, setTagName:setTagName, tagName:tagName,fromAblog:fromAblog, filteredBlogs:filteredBlogs,allTags:allTags, setFromAblog:setFromAblog,recommendedStuff:recommendedStuff, allUsers:allAuthors, setEditBlog:setEditBlog, editBlog:editBlog, currentUser:currentUser, userSearched: userSearched, setUserSearched:setUserSearched ,setCurrentUser:setCurrentUser}}> <Fragment>
          
   
     <BrowserRouter>
