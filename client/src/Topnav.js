@@ -16,10 +16,11 @@ function Topnav(){
     .then(res=>{
     
         console.log(res)
-        theme.setAUser([res])
+       
     
     
-                    theme.setAUser([item]) 
+                    theme.setAUser([res]) 
+                 
                     history.push('/author')
                  })
             }}>
@@ -29,6 +30,7 @@ function Topnav(){
                </span>
     )
     })
+    console.log(theme.aUser)
     const showSearch= theme.allTags?.filter(item=>{
         return item.name.includes(theme.findBlog)
       })
@@ -124,7 +126,7 @@ return(
           
               console.log(res)
               theme.setFindblog('')
-              theme.setAUser([res])
+              theme.setAUser([item])
                   
                           history.push('/author')
                        })

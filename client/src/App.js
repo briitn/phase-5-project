@@ -44,7 +44,7 @@ const [refresh, setRefresh]=useState(false)
 const[fromAblog, setFromAblog]=useState(false)
 const [isLoggedIn, setIsLoggedIn]=useState(false)
 const [filteredBlogs, setFilteredBlogs]=useState([])
-const [aUser, setAUser]=useState([])
+const [aUser, setAUser]=useState()
 
 useEffect(() => {
   async function checkLoggedInStatus() {

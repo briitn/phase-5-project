@@ -5,10 +5,10 @@ import Topnav from "./Topnav"
 function Author(){
     const theme=useContext(ThemeContext)
 
-    
+   console.log(theme.aUser) 
  useEffect(()=> {
     async function fetchUser(){
-    if (theme.aUser.length===0){
+    if (!theme.aUser){
    
       await fetch('/author')
         .then(res=>res.json())
@@ -20,7 +20,7 @@ const holdPost=[]
 let id
 let username
 const history=useHistory()
-    const mapUserStuff=theme.aUser.map(item=>{
+    const mapUserStuff=theme.aUser?.map(item=>{
         holdPost.unshift(item.posts)
       
         id=item.id

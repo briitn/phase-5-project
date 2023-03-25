@@ -12,7 +12,7 @@ useEffect(()=>
     fetch('/search')
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
-(res)})
+})
  }},[])
 
 const history=useHistory()
