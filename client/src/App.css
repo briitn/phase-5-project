@@ -1,3 +1,131 @@
+@media only screen and (max-width: 600px) {
+  .App-logo {
+  height: 30vmin;
+  }
+  #write{
+  left: 10%;
+  }
+  #profile{
+  left: 70%;
+  }
+  #channel{
+  position: relative;
+  left: 0px;
+  top: 0px;
+  }
+  .channel2{
+  position: relative;
+  left: 30%;
+  }
+  #channel3{
+  margin: auto;
+  width: 100%;
+  border: 1px solid rgb(12, 12, 12);
+  padding: 10px;
+  text-align: center;
+  }
+  .topnav {
+  height: 40px;
+  border: 0.1px solid #111010;
+  overflow-x: hidden;
+  }
+  .topnav input[type=text] {
+  position: relative;
+  top: 0px;
+  border: none;
+  margin-right: 8px;
+  font-size: 14px;
+  }
+  #signIn{
+  position: relative;
+  color: #E040FB;
+  left: 5%;
+  }
+  #search{
+  position: relative;
+  background-color: transparent;
+  left: 15%;
+  }
+  #signUp{
+  position: relative;
+  color: #E040FB;
+  right: -15%;
+  }
+  #logout{
+  position: relative;
+  background-color: transparent;
+  bottom: 0px;
+  left: 15%;
+  border: none;
+  }
+  .forCs{
+  position: absolute;
+  width: 150px;
+  height: fit-content;
+  top: 300px;
+  left: 70%;
+  border-radius: 10px;
+  border: 0.1px solid #000000;
+  padding: 30px;
+  }
+  .appName {
+  padding-top: 20px;
+  color: #8C55AA;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  }
+  .authors{
+  position: relative;
+  top: 0px;
+  left: 5px;
+  }
+  .comments{
+  border: 2px solid #111010;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  }
+  .sc{
+  text-align: center;
+  padding-top: 10px;
+  }
+  .box{
+  max-width: 300px;
+  margin: 40px auto;
+  padding: 8px;
+  position: relative;
+  top: -200px;
+  right: 10%;
+  max-height: auto;
+  }
+  .sidenav {
+  position: -webkit-sticky; 
+
+  position: sticky;
+  width: 150px;
+  height: fit-content;
+  top: 0;
+  left: 70%;
+  }
+  .sidenav2{
+  position: -webkit-sticky; 
+  position: sticky;
+  width: 40%;
+  height: 150px;
+  bottom: 0px;
+  left: 70%;
+  border-radius: 10px;
+  border: 0.1px solid #000000;
+  padding: 50px;
+  }
+  .globe{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 350px;
+  }}
 .App {
   text-align: center;
 }
@@ -6,6 +134,47 @@
   height: 40vmin;
   pointer-events: none;
 }
+#write{
+  position: relative;
+  left: 300px;
+
+}
+#profile{
+  position: relative;
+
+left: 900px;
+
+}
+#channel{position: relative;
+  left:0px;
+  top: 0px;}
+  .channel2{
+    position: relative;
+    left: 500px;
+  }
+  #channel3{
+    margin: auto;
+    width: 100%;
+    border: 1px solid rgb(12, 12, 12);
+    padding: 10px;
+    text-align: center;
+  }
+  .topnav {
+    height: 50px;
+  
+    border: 0.1px solid #111010;
+  
+  overflow-x: hidden;
+  }
+  
+  .topnav input[type=text] {
+  position: relative;
+    top:0px;
+    border: none;
+  
+    margin-right: 16px;
+    font-size: 17px;
+  }
 #signIn{
 
   position: relative;
@@ -15,7 +184,7 @@ color: #E040FB;
 #search{
   position: relative;
   background-color: transparent;
-
+left: 250px;
 
 }
 #signUp{
@@ -28,6 +197,14 @@ color: #E040FB;
     animation: App-logo-spin infinite 20s linear;
   }
 }
+#logout{
+  position: relative;
+  background-color: transparent;
+  bottom: 0px;
+  left: 500px;
+  border: none;
+}
+
 .container{
   border: 2px solid hwb(0 5% 95%);
 
@@ -70,17 +247,7 @@ padding: 50px;
   font-weight: bold;
   font-size: 23px;
 }
-#write{
-  position: relative;
-left: 100px;
-bottom:15px
-}
-#profile{
-  position: relative;
-  bottom: 20px;
-left: 500px;
 
-}
 .authors{
   position: relative;
   top: 0px;
@@ -115,13 +282,6 @@ right: 305px;
   max-height: auto;
 }
 
-#logout{
-  position: relative;
-  background-color: transparent;
-  bottom: 15px;
-  left: 300px;
-  border: none;
-}
 
 .sidenav {
   position: -webkit-sticky; /* Safari */
@@ -155,7 +315,7 @@ font-family: monospace;
 }
 .dropdown {
   position: relative;
-  right: 400px;
+
   display: inline-block;
 }
 
@@ -219,37 +379,7 @@ white-space: pre-wrap
 
 }
 
-#channel{position: relative;
-left: -500px;
-top: 20px;}
-.channel2{
-  position: relative;
-  left: 500px;
-}
-#channel3{
-  margin: auto;
-  width: 100%;
-  border: 1px solid rgb(12, 12, 12);
-  padding: 10px;
-  text-align: center;
-}
-.topnav {
-  height: 50px;
 
-  border: 0.1px solid #111010;
-
-
-  text-align: center;
-}
-
-.topnav input[type=text] {
-position: relative;
-  top:20px;
-  border: none;
-
-  margin-right: 16px;
-  font-size: 17px;
-}
 
 textarea::-webkit-scrollbar{
   width: 10px;

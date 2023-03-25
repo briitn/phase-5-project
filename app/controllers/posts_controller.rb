@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     skip_before_action :authorize, only: [:index, :search, :shoe, :update]
     def create
-        session.delete :blog
+
         post=@current_user.posts.create!(post_params)
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
            end;
 
 def index
-    session.delete :blog
+
    if !session[:tag_name]
      session[:tag_name]='Ruby'
    end
@@ -30,11 +30,13 @@ end
 
 def update
 
-    session.delete :blog
+
     post=Post.find(params[:id])
+
     session[:author_id]=post.user.id;
     session[:page_views]=1
-    session[:post_id]=post.id
+    session[:post_id]=params[:id]
+
     if session[:tag_name]
     session.delete :tag_name
     end
@@ -73,13 +75,9 @@ def search
    render json: post
  
 end
-def show
-   
-    session.delete :blog
-session[:post_id]=params[:id]
-end
+
 def shoe
-    session.delete :blog
+ 
     post=Post.find(session[:post_id])
     if post.tags.length!=0
     session[:tag_name]=post.tags.first.name

@@ -38,7 +38,10 @@ function Topnav(){
       const showSearch2= theme.allUsers?.filter(item=>{
         return item.username.includes(theme.findBlog)
       })
-   return( <div className="topnav">
+   return( 
+   <header>
+   <div className="topnav">
+
     <span id="channel"><strong onClick={()=>{history.push('/')}} >Channel🌐 </strong></span>
 <span className='dropdown'>  
 <form onSubmit={(e)=>{
@@ -142,8 +145,8 @@ return(
 :<div></div>}
 </span>
 
-
-{theme.isLoggedIn? <div>  <span><a href="/createBlogs" id='write'>✍️</a> </span>
+<span>
+{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️</a> 
 <button id='logout' onClick={(e)=>{
 
 if (window.confirm("Are you sure you want to logout?")){
@@ -154,13 +157,13 @@ method: "DELETE"
 theme.setIsLoggedIn(false)}
 history.push('/')
 }}>Logout</button> 
-{mapUserStuff}
-</div>:<div><span id='signIn'><b onClick={(e)=>history.push('/login')}>Sign in</b></span> 
- <span id='signUp'><b onClick={(e)=>history.push('/signup')}>Sign up</b></span></div>}
+{mapUserStuff}</span>
+: <span><span id='signIn'><b onClick={(e)=>history.push('/login')}>Sign in</b></span>
+ <span id='signUp'><b onClick={(e)=>history.push('/signup')}>Sign up</b></span> </span>}
+</span>
 
 
-
-</div>)
+</div> </header>)
 }
 
 

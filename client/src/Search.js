@@ -12,7 +12,7 @@ useEffect(()=>
     fetch('/searched')
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
-(res)})
+})
  }},[theme])
 
 const history=useHistory()
@@ -27,7 +27,8 @@ const mapBlogs=theme.filteredBlogs?.map(item=>{
 <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>
 <p>👁{item.views}</p>
 <p  onClick={()=>{theme.setReadBlog([item])
-history.push('/blog')
+console.log(item.id)
+console.log(item)
 fetch('/views',{
     method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -39,7 +40,7 @@ fetch('/views',{
     )
 
 })
-
+history.push('/blog')
 }}>read more</p>
 
         </div>

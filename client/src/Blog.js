@@ -11,11 +11,11 @@ const [comments,setComments]=useState()
 const [comment, setComment]=useState('')
 const history=useHistory()
 const [showComments, setShowComments]=useState(false)
-useEffect(()=>{
+useEffect(()=>{ if (theme.readBlog.length===0){
     fetch('/aBlog')
     .then(res=>res.json())
 .then(res=>{theme.setReadBlog([res])
-})
+})}
 },[])
 useEffect(()=>{
     fetch("/comments")
