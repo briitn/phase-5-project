@@ -55,9 +55,9 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
         </span>  
           <span> <h1>{item.title}  </h1>  { item.tags.length!==0?<div> {item.tags.map(item=>{
     return(<div className="blogBadge" id={item.id}><p className="tag">🏷{item.name}</p></div>)})}</div>:<div></div>}  </span>   
-<h3 className='dox2'> {item.blog}</h3>
-<div >{!showComments?<span className="pubBtn" >
-  
+<p className='dox2'> {item.blog}</p>
+<div className="pubBtn" >{!showComments?<span  >
+ <em> 
 {theme.isLoggedIn?<p onClick={(e)=>fetch('/views',{
     method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -80,12 +80,12 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
 
        alert(err.errors)})
 }
-}) }>❤️{item.likes}</p>:<p onClick={(e)=>{ 
+}) }>❤️{item.likes}</p>:<em onClick={(e)=>{ 
     if (theme.isLoggedIn===false){
 theme.setFromAblog(true)
 localStorage.setItem('fromBlog', "Create an account to like post" )
 history.push('/signup')
-}}}>❤️{item.likes}</p>}
+}}}>❤️{item.likes}</em>}</em>
 <em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:
 <div  className="forCs">
 <button id='x' onClick={()=>{setShowComments(false)}}>x</button>

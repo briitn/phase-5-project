@@ -132,9 +132,9 @@ const authors=[...new Set(filteredAuthor)]
 return (
     <Fragment>
          
- <header><Topnav/></header>
+<Topnav/>
 
-<img src='https://img.freepik.com/premium-vector/globe-silhouette-america-continent-map-earth-latitude-longitude-line-grid-vector_8589-692.jpg' className="globe" alt='white and black globe'/>
+<img src='http://www.clker.com/cliparts/w/A/B/P/M/r/enlarged-thick-blue-wire-globe.svg' className="globe" alt='blue globe'/>
     <div className="sidenav">
     <div className="cont">
         <b>Popular Topics</b>

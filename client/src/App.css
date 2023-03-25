@@ -27,7 +27,7 @@
   .topnav {
   height: 40px;
   border: 0.1px solid #111010;
-  overflow-x: hidden;
+
   }
   .topnav input[type=text] {
   position: relative;
@@ -56,6 +56,7 @@
   background-color: transparent;
   bottom: 0px;
   left: 15%;
+  color: #61dafb;
   border: none;
   }
   .forCs{
@@ -97,7 +98,7 @@
   padding: 8px;
   position: relative;
   top: -200px;
-  right: 10%;
+
   max-height: auto;
   }
   .sidenav {
@@ -160,7 +161,7 @@ left: 900px;
     text-align: center;
   }
   .topnav {
-    height: 50px;
+    height: fit-content;
   
     border: 0.1px solid #111010;
   
@@ -178,8 +179,8 @@ left: 900px;
 #signIn{
 
   position: relative;
-color: #E040FB;
-  left: 70px;
+color: #0c7091;
+  left: 300px;
 }
 #search{
   position: relative;
@@ -189,8 +190,8 @@ left: 250px;
 }
 #signUp{
   position: relative;
-  color: #E040FB;
-  right: -300px;
+  color: #0c6782;
+  right: -500px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -200,9 +201,10 @@ left: 250px;
 #logout{
   position: relative;
   background-color: transparent;
-  bottom: 0px;
+ 
   left: 500px;
   border: none;
+  color: #bd3737;
 }
 
 .container{
@@ -228,12 +230,12 @@ height:fit-content;
 }
 .forCs{
   
-  position: absolute;
-width: 200px;
+  position: sticky;
+width: auto;
  height:fit-content;
-
-top: 400px;
-  left: 930px;
+background-color:white;
+top: 0px;
+  left: 0px;
 border-radius: 10px;
 border: 0.1px solid #000000;
 padding: 50px;
@@ -242,7 +244,7 @@ padding: 50px;
 }
 .appName {
   padding-top: 40px;
-  color: #8C55AA;
+  color: #1795ae;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
@@ -289,7 +291,7 @@ right: 305px;
   width: 300px;
  height: fit-content;
   top: 0;
-  left: 1050px;
+  left: 1150px;
 }
 .sidenav2{
   position: -webkit-sticky; /* Safari */
@@ -306,7 +308,7 @@ padding: 100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 400px;
 }
 body{
 
@@ -319,16 +321,17 @@ font-family: monospace;
   display: inline-block;
 }
 
-/* Dropdown Content (Hidden by Default) */
+
 .dropdown-content {
 
-  position: absolute;
-  top: 50px;
-  right: 20px;
+  position: relative;
+  top: 0px;
+left: 325px;
   background-color: #f6f6f6;
-  min-width: 230px;
-  border: 1px solid #ddd;
-  z-index: 1;
+  width: 180px;
+  border: 1px solid #0e0d0d;
+ 
+  
 }
 
 
@@ -368,13 +371,13 @@ right: 275px;
   max-height: auto;
 }
 .dox2{
-  max-width: 70%;
+  max-width: 90%;
   margin: 40px auto;
   padding: 16px;
-
+font-size: large;
 max-height: auto;
 position: relative;
-right: 150px;
+right: 0px;
 white-space: pre-wrap
 
 }
@@ -422,7 +425,7 @@ textarea::-webkit-scrollbar-thumb{
 }
 .pubBtn{
 
-  position: fixed;
+  position:relative;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -505,14 +508,14 @@ textarea {
 }
 #x{
   position: relative;
-  bottom: 50px;
+  bottom: 70px;
   right: 50px;
 }
 .submit {
   cursor: pointer;
     border-radius: 5em;
     color: #fff;
-    background: linear-gradient(to right, #ea77db, #E040FB);
+    background: linear-gradient(to right, #0f68c1, #21acd7);
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
@@ -537,7 +540,7 @@ textarea {
 }
 .sign {
   padding-top: 40px;
-  color: #8C55AA;
+  color: #4689d1;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;

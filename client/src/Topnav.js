@@ -86,7 +86,30 @@ theme.setFindblog(e.target.value)
 }} 
 />
 </form>
-{theme.findBlog? <span className='dropdown-content'>
+
+</span>
+
+<span>
+{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️</a> 
+<button id='logout' onClick={(e)=>{
+
+if (window.confirm("Are you sure you want to logout?")){
+fetch("/logout",
+{
+method: "DELETE"
+})
+theme.setIsLoggedIn(false)}
+history.push('/')
+}}>Logout</button> 
+{mapUserStuff}</span>
+: <span><span id='signIn'><b onClick={(e)=>history.push('/login')}>Sign in</b></span>
+ <span id='signUp'><b onClick={(e)=>history.push('/signup')}>Sign up</b></span> </span>}
+</span>
+
+
+</div>
+
+<div className='dropdown-content'>{theme.findBlog? <span >
 
 <b>Topics</b>
 <div>
@@ -142,28 +165,11 @@ return(
 
 )
 })}</span>
-:<div></div>}
-</span>
-
-<span>
-{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️</a> 
-<button id='logout' onClick={(e)=>{
-
-if (window.confirm("Are you sure you want to logout?")){
-fetch("/logout",
-{
-method: "DELETE"
-})
-theme.setIsLoggedIn(false)}
-history.push('/')
-}}>Logout</button> 
-{mapUserStuff}</span>
-: <span><span id='signIn'><b onClick={(e)=>history.push('/login')}>Sign in</b></span>
- <span id='signUp'><b onClick={(e)=>history.push('/signup')}>Sign up</b></span> </span>}
-</span>
+:<div></div>}</div>
 
 
-</div> </header>)
+
+ </header>)
 }
 
 
