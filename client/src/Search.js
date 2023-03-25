@@ -7,12 +7,13 @@ function Search(){
 
 
 useEffect(()=>
+async function getSearch(){
 {if (theme.filteredBlogs.length===0){
     
-    fetch('/search')
+    await fetch('/search')
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
-})
+})}
  }},[])
 
 const history=useHistory()
