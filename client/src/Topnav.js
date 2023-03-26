@@ -106,7 +106,7 @@ fetch("/logout",
 method: "DELETE"
 })
 theme.setIsLoggedIn(false)}
-history.push('/')
+history.push('/login')
 }}>Logout</button> 
 {mapUserStuff}</span>
 : <span><span id='signIn'><b onClick={(e)=>history.push('/login')}>Sign in</b></span>

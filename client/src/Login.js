@@ -90,7 +90,7 @@ const theme=useContext(ThemeContext)
             value={password}
             onChange={changePass}/>
      </FormField>
-           {loading?<button className="sumbit">Signing you in...</button>:<button className="submit" >
+           {loading?<button className="submit">Signing you in...</button>:<button className="submit" >
             Sign in</button>}
             <p  className='sc'> <a  href='./signup'>Create an account</a> </p>
            </form> 
