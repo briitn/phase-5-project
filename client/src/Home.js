@@ -66,12 +66,12 @@ fetch('/views',{
 })
 
 const mapBlogs=theme.allBlogs?.slice(0,30).map(item=>{
-  
+    
     return (
         <div key={item.id} className='container'>
             <img src={item.user?.image_url}
             alt='userImage' className="profilePic"/>
-           <div><b onClick={(e)=>{
+           <em onClick={(e)=>{
      
 fetch(`/users/${item.user.id}`)
 .then(res=>res.json())
@@ -82,8 +82,8 @@ fetch(`/users/${item.user.id}`)
 history.push('/author')
 })
            }}
-           >{item.user.username}</b></div> 
-            <span><i>{item.title}</i></span>
+           >{item.user.username}</em>
+            <div><b>{item.title}</b></div>
 <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>
 <p>👁{item.views}</p>
 <p  onClick={()=>{theme.setReadBlog([item])
@@ -133,8 +133,8 @@ return (
     <Fragment>
          
 <Topnav/>
+<div className="globe" ><img src='http://www.clker.com/cliparts/w/A/B/P/M/r/enlarged-thick-blue-wire-globe.svg' alt='blue globe'/></div>
 
-<img src='http://www.clker.com/cliparts/w/A/B/P/M/r/enlarged-thick-blue-wire-globe.svg' className="globe" alt='blue globe'/>
     <div className="sidenav">
     <div className="cont">
         <b>Popular Topics</b>
@@ -161,7 +161,7 @@ return (
                    history.push('/search') 
                       })
              
-                  }}> 🏷{item.name}</p></div>
+                  }}> <i class="fas fa-tag"></i>{item.name}</p></div>
             )
         })} </div> 
         <b>Recommended Blogs</b>

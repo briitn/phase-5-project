@@ -137,16 +137,17 @@
 }
 #write{
   position: relative;
-  left: 300px;
+  left: 700px;
 
 }
 #profile{
   position: relative;
 
-left: 900px;
+left: 800px;
 
 }
 #channel{position: relative;
+  font-size: 25px;
   left:0px;
   top: 0px;}
   .channel2{
@@ -164,7 +165,7 @@ left: 900px;
     height: fit-content;
   
     border: 0.1px solid #111010;
-  
+
   overflow-x: hidden;
   }
   
@@ -176,22 +177,25 @@ left: 900px;
     margin-right: 16px;
     font-size: 17px;
   }
+  
 #signIn{
 
   position: relative;
 color: #0c7091;
-  left: 300px;
+  left: 700px;
 }
 #search{
   position: relative;
-  background-color: transparent;
-left: 250px;
+  
+  border: 0.1px solid #8a8181;
+left: 100px;
+border-radius: 30px;
 
 }
 #signUp{
   position: relative;
   color: #0c6782;
-  right: -500px;
+  right: -800px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -202,13 +206,13 @@ left: 250px;
   position: relative;
   background-color: transparent;
  
-  left: 500px;
+  left: 750px;
   border: none;
   color: #bd3737;
 }
 
 .container{
-  border: 2px solid hwb(0 5% 95%);
+  border: 2px solid hwb(0 83% 16%);
 
   border-radius: 1px;
   padding: 10px;
@@ -288,10 +292,11 @@ right: 305px;
 .sidenav {
   position: -webkit-sticky; /* Safari */
   position: sticky;
-  width: 300px;
+  width: 350px;
  height: fit-content;
   top: 0;
   left: 1150px;
+  border: 2px solid #e3dede;
 }
 .sidenav2{
   position: -webkit-sticky; /* Safari */
@@ -308,16 +313,19 @@ padding: 100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 400px;
+  width:100%;
+  height: 30%;
+align-items: center;
 }
 body{
 
-font-family: monospace;
+
 
 }
+
 .dropdown {
   position: relative;
-
+height: 50px;
   display: inline-block;
 }
 
@@ -326,15 +334,19 @@ font-family: monospace;
 
   position: relative;
   top: 0px;
-left: 325px;
-  background-color: #f6f6f6;
+left: 225px;
+
+  background-color: white;
   width: 180px;
-  border: 1px solid #0e0d0d;
+
+  border: 2px solid rgb(245, 239, 239)
  
   
 }
 
-
+.dropdown-content  span  p {
+color: #bab6b6;
+}
 
 .tag{
   font-size: 12px;
@@ -490,8 +502,8 @@ textarea {
 }
 .profilePic{
   vertical-align: middle;
-  width: 40px;
-  height: 50px;
+  width: 20px;
+  height: 30px;
   border-radius: 50%;
 }
 .profilePic2{

@@ -77,7 +77,7 @@ alert(err.errors)})
 
 
 }}}>
-<input type="text" placeholder="Search.."
+<input type="text" placeholder=" 🔍 Search.."
 value={theme.findBlog}
 id='search'
 onChange={(e)=>{
@@ -90,7 +90,7 @@ theme.setFindblog(e.target.value)
 </span>
 
 <span>
-{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️</a> 
+{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️ Write</a> 
 <button id='logout' onClick={(e)=>{
 
 if (window.confirm("Are you sure you want to logout?")){
@@ -110,15 +110,15 @@ history.push('/')
 </div>
 
 <div className='dropdown-content'>{theme.findBlog? <span >
-
-<b>Topics</b>
+  
+<p>Topics</p>
 <div>
 {showSearch.map(item=>
 {
 
 return(<div key={item.id} > 
 
-<p onClick={(e)=>{  fetch('/filtered',
+<small onClick={(e)=>{  fetch('/filtered',
            {
               method:"POST",
               headers:{"Content-Type":"application/json"},
@@ -136,13 +136,14 @@ return(<div key={item.id} >
            theme.setFindblog()
           history.push('/search') 
              })}}>
-🏷{item.name}
-</p>
+<i class="fas fa-tag"></i>{item.name}
+</small>
 
 </div>)
 }) } 
 </div>
-<b>People</b>
+<div><p>People</p></div>
+
 {showSearch2.map(item=>{
 return(
 
@@ -159,7 +160,7 @@ return(
                        })
    }}>
    <img src={item.image_url} className='profilePic' alt="user profile"/>
-     <em>{item.username}</em>  
+     <small>{item.username}</small>  
 
    </div>
 
