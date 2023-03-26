@@ -7,13 +7,13 @@ class PostsController < ApplicationController
             session[:author_id]=@current_user.id
              
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and PLEASE separate them with commas and do not number them: #{params[:blog]} "
-               chatbot = Chatbot.new('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')
+               chatbot = Chatbot.new('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')
                response = chatbot.respond_to(message)
-
+            
             arr=response.dig("choices", 0, "message", "content").split(',') 
           
                render json: {:post=>post, :response=>arr}
-        
+     
            end;
 
 def index

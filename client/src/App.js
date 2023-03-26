@@ -85,7 +85,7 @@ useEffect(()=>{
  
 
     })
-}, [userStuff])
+}, [])
 
 useEffect(()=>{
   fetch("/tags")
@@ -94,7 +94,7 @@ useEffect(()=>{
   
 
   })
-}, [userStuff])
+}, [])
 
 
 
@@ -117,7 +117,7 @@ useEffect(()=>{
 setRecommendedStuff(res)
   })
 
-},[tagName])
+},[])
 
 
 

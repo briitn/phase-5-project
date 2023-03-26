@@ -188,6 +188,7 @@ color: #0c7091;
   position: relative;
   background-color: transparent;
   border: 0.1px solid #8a8181;
+  color: white;
 left: 100px;
 border-radius: 30px;
 
@@ -381,7 +382,7 @@ color: #bab6b6;
   z-index: 9;
   max-width: 300px;
   padding: 20px;
-  background-color: #fff;
+  background-color:black;
 }
 
 .dox{

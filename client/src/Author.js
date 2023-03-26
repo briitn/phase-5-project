@@ -37,6 +37,8 @@ const history=useHistory()
     })
     holdPost[0]?.sort((a, b) =>b.id- a.id
     )
+
+    console.log(username)
 return (
 <Fragment>
  

@@ -5,7 +5,9 @@ import Topnav from "./Topnav"
 function Search(){
     const theme=useContext(ThemeContext)
 
-
+   
+    const userSearched=localStorage.getItem('search')
+    console.log(userSearched)
 useEffect(()=>
 {if (theme.filteredBlogs.length===0){
     
@@ -13,7 +15,7 @@ useEffect(()=>
     .then(res=>res.json())
     .then((res)=>{theme.setFilteredBlogs(res)
 })
- }},[theme])
+ }},[])
 
 const history=useHistory()
 const mapBlogs=theme.filteredBlogs?.map(item=>{
@@ -46,11 +48,12 @@ history.push('/blog')
         </div>
     )
 })
+
 return (
     <Fragment>
         <Topnav/>
          <div className="cont">
-        <h1>{theme.userSearched}</h1>
+        <h1>{userSearched}</h1>
         {mapBlogs}
     </div>
     </Fragment>

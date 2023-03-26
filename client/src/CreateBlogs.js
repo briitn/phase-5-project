@@ -4,7 +4,8 @@ import { ThemeContext } from "styled-components"
 
 function CreateBlogs(){
     const theme=useContext(ThemeContext)
-
+    const userSearched=localStorage.getItem('search')
+    console.log(userSearched)
 const getEdit=localStorage.getItem('editingBlog')
 const getTitle=localStorage.getItem('editingTitle')
 const getId=localStorage.getItem('id')
@@ -138,12 +139,12 @@ onClick={(e)=>{
           
         </div>
          
-               <span><textarea
+               <span><input
                 placeholder="title"
                
                 value={title} onChange={(e)=>{
                  setTiltle(e.target.value)
-                }}className="title"></textarea>
+                }}className="title"/>
                 </span>
                 <div><textarea
                   value={blog} onChange={(e)=>{setBlog(e.target.value)

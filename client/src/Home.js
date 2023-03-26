@@ -5,15 +5,17 @@ import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 
 function Home(){
-  
+
     const theme=useContext(ThemeContext)
     theme.recommendedStuff?.sort((a, b) =>b.views- a.views);
 theme.allTags.sort((a, b) =>b.posts.length- a.posts.length);
 
 const history=useHistory()
-
+localStorage.removeItem("editingBlog");
+localStorage.removeItem("id");
+localStorage.removeItem("editingTitle");
 const eArray=[]
-localStorage.clear()
+
 
 const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     eArray.push(item.user)
@@ -32,7 +34,7 @@ const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
 
 
 item.tags.length!==0?theme.setTagName(item.tags[0].name): theme.setTagName()
-
+localStorage.clear()
 fetch('/views',{
     method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -66,7 +68,7 @@ fetch('/views',{
 })
 
 const mapBlogs=theme.allBlogs?.slice(0,30).map(item=>{
-    console.log(item)
+
     return (
         <div key={item.id} className='container'>
             <img src={item.user?.image_url}
@@ -85,7 +87,7 @@ history.push('/author')
            >{item.user.username}</em>
             <div><b>{item.title}</b>
             { item.tags.length!==0?<div> {item.tags.map(item=>{
-    return(<div className="blogBadge" id={item.id}><p className="tag"><i class="fas fa-tag"></i>{item.name}</p></div>)})}</div>:<div></div>}
+    return(<div className="blogBadge" id={item.id}><p className="tag"><i className="fas fa-tag"></i>{item.name}</p></div>)})}</div>:<div></div>}
             </div>
 <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>
 <p>👁{item.views}</p>
@@ -164,13 +166,13 @@ return (
                    history.push('/search') 
                       })
              
-                  }}> <i class="fas fa-tag"></i>{item.name}</p></div>
+                  }}> <i className="fas fa-tag"></i>{item.name}</p></div>
             )
         })} </div> 
         <b>Recommended Blogs</b>
         {mapRecommendedStuff}
         <div> <b>Recommended Author</b>
-       {authors.slice(0,1).map(item=>{
+       {authors.slice(-1).map(item=>{
   
         return(<div key={item.id} className='authors' onClick={(e)=>{
             fetch(`/users/${item.id}`)

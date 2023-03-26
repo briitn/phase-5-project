@@ -6,7 +6,7 @@ import { ThemeContext } from "styled-components"
 function Topnav(){
     const theme=useContext(ThemeContext)
     const history=useHistory()
-
+ 
     const mapUserStuff=theme.userStuff.map(item=>{
         console.log(item.username)
         return(
@@ -38,6 +38,7 @@ function Topnav(){
       const showSearch2= theme.allUsers?.filter(item=>{
         return item.username.includes(theme.findBlog)
       })
+
    return( 
    <header>
    <div className="topnav">
@@ -46,6 +47,10 @@ function Topnav(){
 <span className='dropdown'>  
 <form onSubmit={(e)=>{
 e.preventDefault()
+localStorage.setItem('search', JSON.stringify(theme.findBlog))
+const userSearched=localStorage.getItem('search')
+console.log(userSearched)
+console.log(theme.findBlog)
     if(theme.findBlog){
 fetch('/posts/search',
 {
@@ -62,10 +67,12 @@ title: theme.findBlog
 if (res.ok){
 res.json().then((res)=>{
 theme.setFilteredBlogs(res)
-theme.setUserSearched(theme.findBlog)
+
 theme.setFindblog()
 
-history.push('/search')
+setTimeout(() => {
+   history.push('/search')
+},3000);
 })
 }
 else {
@@ -90,7 +97,7 @@ theme.setFindblog(e.target.value)
 </span>
 
 <span>
-{theme.isLoggedIn?   <span><a onClick={(e)=>{history.push('/createBlogs')}} id='write'><i class="fa-solid fa-pen-to-square"></i> Write</a> 
+{theme.isLoggedIn?   <span><a onClick={(e)=>{history.push('/createBlogs')}} id='write'><i className="fa-solid fa-pen-to-square"></i> Write</a> 
 <button id='logout' onClick={(e)=>{
 
 if (window.confirm("Are you sure you want to logout?")){
@@ -136,7 +143,7 @@ return(<div key={item.id} >
            theme.setFindblog()
           history.push('/search') 
              })}}>
-<i class="fas fa-tag"></i>{item.name}
+<i className="fas fa-tag"></i>{item.name}
 </small>
 
 </div>)
