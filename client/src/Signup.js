@@ -3,9 +3,9 @@ import FormField from "./styles/FormField"
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 function Signup(){
+  document.title= 'Channel/signup'
     const theme=useContext(ThemeContext)
-
-    const[newUsername, setNewUsername]=useState('')
+ const[newUsername, setNewUsername]=useState('')
   const fromBlog= localStorage.getItem('fromBlog')
       const [imageUrl, setImageUrl]=useState('')
       const [password, setPassword]

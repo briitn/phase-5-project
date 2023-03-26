@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Author(){
+    document.title= 'Channel/view-user'
     const theme=useContext(ThemeContext)
 
     
@@ -49,6 +50,7 @@ return (
     {holdPost[0]?.map(item=>{
    console.log(holdPost[0].length)
         return(<div key={item.id} >
+            <hr></hr>
              <div className="container">
                  <b>{item.title}</b>
                  <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>

@@ -119,6 +119,7 @@ history.push('/')
 {theme.findBlog?<div className='dropdown-content'> <span >
   
 <p>Topics</p>
+<hr></hr>
 <div>
 {showSearch.map(item=>
 {
@@ -149,8 +150,9 @@ return(<div key={item.id} >
 </div>)
 }) } 
 </div>
-<div><p>People</p></div>
-
+<div><p>People</p>
+<hr></hr>
+</div>
 {showSearch2.map(item=>{
 return(
 

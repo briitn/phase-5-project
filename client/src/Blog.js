@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Blog(){
-
+    document.title= 'Channel/view-blog'
 
 const theme=useContext(ThemeContext)
 console.log(theme.readBlog)
@@ -26,6 +26,7 @@ useEffect(()=>{
     })},[])
     const mapComments=comments?.map(item=>{
         return(<div key={item.id}>
+            <hr></hr>
             <img src={item.user.image_url}
             alt='userImage' className="profilePic"/>
            <p>{item.comment}</p> 

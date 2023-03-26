@@ -3,10 +3,9 @@ import { Fragment, useContext, useEffect} from "react"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 function Search(){
+    document.title= 'Channel/view-search'
     const theme=useContext(ThemeContext)
-
-   
-    const userSearched=localStorage.getItem('search')
+const userSearched=localStorage.getItem('search')
     console.log(userSearched)
 useEffect(()=>
 {if (theme.filteredBlogs.length===0){
@@ -22,6 +21,7 @@ const mapBlogs=theme.filteredBlogs?.map(item=>{
   
     return (
         <div key={item.id} className='container'>
+            <hr></hr>
             <img src={item.user.image_url}
             alt='userImage' className="profilePic"/>
            <div><b>{item.user.username}</b></div> 

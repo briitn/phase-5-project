@@ -3,16 +3,17 @@ import FormField from "./styles/FormField"
 import { useHistory  } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 function Login(){
-
+    document.title= 'Channel/login'
 const theme=useContext(ThemeContext)
     const history= useHistory()
     const fromBlog= localStorage.getItem('fromBlog')
     const [username, setUsername]=useState('')
-
+    const [loading, setLoading]=useState(false)
     const [password, setPassword]=useState('')
 
     function changeSubmit(e){
         e.preventDefault()
+        setLoading(true)
         fetch("users/login",
         {
             method:"POST",
@@ -89,8 +90,8 @@ const theme=useContext(ThemeContext)
             value={password}
             onChange={changePass}/>
      </FormField>
-           <button className="submit" >
-            Sign in</button>
+           {loading?<button className="sumbit">Signing you in...</button>:<button className="submit" >
+            Sign in</button>}
             <p  className='sc'> <a  href='./signup'>Create an account</a> </p>
            </form> 
      

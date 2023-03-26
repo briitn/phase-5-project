@@ -213,10 +213,7 @@ border-radius: 30px;
 }
 
 .container{
-  border-top-style:solid;
-  border-right-style: none;
-  border-bottom-style: solid;
-  border-left-style: none;
+
   border-radius: 1px;
   padding: 10px;
   margin: 10px 0;
@@ -346,7 +343,7 @@ height: 50px;
   top: 10px;
 left: 225px;
 
-  background-color: transparent;
+  background-color: black;
   width: 180px;
   border-radius: 10px;
   border-top-style: none;
@@ -466,9 +463,11 @@ background-color: transparent;
 
 }
 .button{
+  position: fixed;
+  bottom: 0px;
   border: none;
-
-  background-color:rgb(179, 175, 175);
+border-radius: 10px;
+  background-color:rgb(93, 239, 112);
   outline: none;
   cursor: pointer;
 }
@@ -541,6 +540,7 @@ textarea {
   background-color: transparent;
   width: fit-content;
   height:fit-content;
+  color: white;
 }
 #x{
   position: relative;

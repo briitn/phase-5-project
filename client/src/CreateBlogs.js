@@ -3,7 +3,9 @@ import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 
 function CreateBlogs(){
+    document.title= 'Channel/view-write'
     const theme=useContext(ThemeContext)
+    const [loading, setLoading]=useState(false)
     const userSearched=localStorage.getItem('search')
     console.log(userSearched)
 const getEdit=localStorage.getItem('editingBlog')
@@ -38,6 +40,7 @@ const [showAiTags, setShowAiTags]=useState(false)
 
 
 function submitBlog(e){
+    setLoading(true)
 if (theme.editBlog){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -67,7 +70,7 @@ if (theme.editBlog){
     }
     else {
         res.json().then((err) => {
-      
+      setLoading(false)
        alert(err.errors)})
 }
 
@@ -102,7 +105,7 @@ fetch(`/posts`,{
                 }
                 else {
                     res.json().then((err) => {
-                
+                        setLoading(false)
                    alert(err.errors)})
     }
 }) } 
@@ -114,7 +117,7 @@ fetch(`/posts`,{
 const mapAiTags=aiTags?.slice(0,3).map(item=>{
     return(<div key={Math.random()} >
       
-        <small onClick={(e)=>{setTags([...tags, item]); e.target.className='hTag'}}>🏷{item}</small>
+        <small onClick={(e)=>{setTags([...tags, item]); e.target.className='hTag'}}><i className="fas fa-tag"></i>{item}</small>
       </div>
        
     )
@@ -151,7 +154,7 @@ onClick={(e)=>{
                    localStorage.setItem('editingBlog', e.target.value)
                 
                   }} placeholder='Write' className='article'></textarea>
-               <span className="pubBtn"><button className="button" onClick={submitBlog}>Publish</button></span> 
+               <span className="pubBtn">{!loading?<button className="button" onClick={(e)=>{submitBlog()}}>Publish</button>:<button className="button">Publishing</button>}</span> 
                </div> 
          {showAiTags?<div className="popup"> 
          <form onSubmit={(e)=>{e.preventDefault()
@@ -161,7 +164,7 @@ onClick={(e)=>{
           <i> select tags</i>{mapAiTags}
         
           <div className="container">
-          {tags?.map(item=>{return (<small key={Math.random()}>🏷{item}</small>)})}
+          {tags?.map(item=>{return (<small key={Math.random()}><i className="fas fa-tag"></i>{item}</small>)})}
           </div>{ tags.length!==0?<button onClick={(e)=>{fetch("/tags",
 {method:"POST",
 headers:{"Content-Type":"application/json"},

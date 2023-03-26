@@ -20,6 +20,7 @@ const eArray=[]
 const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     eArray.push(item.user)
     return(<div key={item.id} >
+        <hr></hr>
       <div className="cont">
        <span>  <img src={item.user.image_url} 
             alt='authours proifile'
@@ -71,6 +72,7 @@ const mapBlogs=theme.allBlogs?.slice(0,30).map(item=>{
 
     return (
         <div key={item.id} className='container'>
+            <hr></hr>
             <img src={item.user?.image_url}
             alt='userImage' className="profilePic"/>
            <em onClick={(e)=>{
@@ -171,6 +173,7 @@ return (
         })} </div> 
         <b>Recommended Blogs</b>
         {mapRecommendedStuff}
+        <hr></hr>
         <div> <b>Recommended Author</b>
        {authors.slice(-1).map(item=>{
   
