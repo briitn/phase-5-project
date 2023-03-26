@@ -1,9 +1,15 @@
 require 'openai'
 
 class Chatbot
+
   def initialize(api_key)
-    @api_key = api_key
-    @client = OpenAI::Client.new(access_token: @api_key)
+
+    OpenAI.configure do |config|
+    config.access_token = ENV.fetch('OPENAI_API_KEY')
+   
+end
+    @client =OpenAI::Client.new
+
   end
 
   def respond_to(message)

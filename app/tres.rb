@@ -1,0 +1,1 @@
+puts  ENV.fetch('OPENAI_API_KEY')
