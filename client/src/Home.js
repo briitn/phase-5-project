@@ -66,7 +66,7 @@ fetch('/views',{
 })
 
 const mapBlogs=theme.allBlogs?.slice(0,30).map(item=>{
-    
+    console.log(item)
     return (
         <div key={item.id} className='container'>
             <img src={item.user?.image_url}
@@ -83,7 +83,10 @@ history.push('/author')
 })
            }}
            >{item.user.username}</em>
-            <div><b>{item.title}</b></div>
+            <div><b>{item.title}</b>
+            { item.tags.length!==0?<div> {item.tags.map(item=>{
+    return(<div className="blogBadge" id={item.id}><p className="tag"><i class="fas fa-tag"></i>{item.name}</p></div>)})}</div>:<div></div>}
+            </div>
 <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>
 <p>👁{item.views}</p>
 <p  onClick={()=>{theme.setReadBlog([item])

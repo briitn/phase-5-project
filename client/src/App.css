@@ -186,7 +186,7 @@ color: #0c7091;
 }
 #search{
   position: relative;
-  
+  background-color: transparent;
   border: 0.1px solid #8a8181;
 left: 100px;
 border-radius: 30px;
@@ -212,8 +212,10 @@ border-radius: 30px;
 }
 
 .container{
-  border: 2px solid hwb(0 83% 16%);
-
+  border-top-style:solid;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
   border-radius: 1px;
   padding: 10px;
   margin: 10px 0;
@@ -237,7 +239,7 @@ height:fit-content;
   position: sticky;
 width: auto;
  height:fit-content;
-background-color:white;
+background-color:transparent;
 top: 0px;
   left: 0px;
 border-radius: 10px;
@@ -296,7 +298,10 @@ right: 305px;
  height: fit-content;
   top: 0;
   left: 1150px;
-  border: 2px solid #e3dede;
+  border-top-style: none;
+  border-right-style: solid;
+  border-bottom-style: none;
+  border-left-style: solid;
 }
 .sidenav2{
   position: -webkit-sticky; /* Safari */
@@ -306,7 +311,10 @@ width: 15%;
 bottom: 0px;
   left: 1050px;
 border-radius: 10px;
-border: 0.1px solid #000000;
+border-top-style: none;
+border-right-style: solid;
+border-bottom-style: none;
+border-left-style: solid;
 padding: 100px;
 }
 .globe{
@@ -318,8 +326,9 @@ padding: 100px;
 align-items: center;
 }
 body{
-
-
+font-family: monospace;
+background-color: #000000;
+color: white;
 
 }
 
@@ -333,13 +342,17 @@ height: 50px;
 .dropdown-content {
 
   position: relative;
-  top: 0px;
+  top: 10px;
 left: 225px;
 
-  background-color: white;
+  background-color: transparent;
   width: 180px;
+  border-radius: 10px;
+  border-top-style: none;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
 
-  border: 2px solid rgb(245, 239, 239)
  
   
 }
@@ -378,6 +391,7 @@ color: #bab6b6;
 width: 70%;
 position: relative;
 
+
 top: 0px;
 right: 275px;
   max-height: auto;
@@ -409,10 +423,10 @@ textarea::-webkit-scrollbar-thumb{
   width: fit-content;
 
   height: fit-content;
-
+background-color: transparent;
   font-size: 50px;
   font-weight: 600;
-  color: #2d2d2d;
+  color: white;
 
   border: none;
   padding: 10px;
@@ -420,12 +434,13 @@ textarea::-webkit-scrollbar-thumb{
 }
 .article{
     width: 100%;
+    background-color: transparent;
     min-height: 100px;
     height: auto;
     outline: none;
     font-size: 50px;
     font-weight: 600;
-    color: #2d2d2d;
+  color: white;
     resize: none;
     border: none;
     padding: 10px;
@@ -433,7 +448,7 @@ textarea::-webkit-scrollbar-thumb{
 }
 .title::placeholder,
 .article::placeholder{
-    color: #2d2d2d;
+
 }
 .pubBtn{
 
@@ -479,12 +494,13 @@ textarea::-webkit-scrollbar-thumb{
   width: 100%;
 }
 .username{ width: 76%;
-  color: rgb(38, 50, 56);
+  color:rgb(74, 140, 226);
   text-align: center;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background-color:transparent;
+
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
@@ -514,7 +530,14 @@ textarea {
   position: relative;
   left: 500px;
 }
+.profilePic3{
+  vertical-align: middle;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+}
 .iComment{
+  background-color: transparent;
   width: fit-content;
   height:fit-content;
 }
@@ -522,6 +545,11 @@ textarea {
   position: relative;
   bottom: 70px;
   right: 50px;
+  color: red;
+  background-color: transparent;
+}
+#blogTitle{
+  text-align: center;
 }
 .submit {
   cursor: pointer;
@@ -539,7 +567,7 @@ textarea {
     box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
 }
 .fox{
-  background-color: #FFFFFF;
+  background-color:transparent;
   width: 400px;
   height: 500px;
   margin: 7em auto;

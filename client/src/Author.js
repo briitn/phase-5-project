@@ -27,7 +27,7 @@ const history=useHistory()
             <div key={item.id}>
                 <img src={item.image_url} 
                 alt='user profile'
-                className='profilePic'/>
+                className='profilePic3'/>
                 <h2>{item.username}</h2>
         
             <p>{item.bio}</p> 

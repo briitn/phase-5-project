@@ -90,7 +90,7 @@ theme.setFindblog(e.target.value)
 </span>
 
 <span>
-{theme.isLoggedIn?   <span><a href="/createBlogs" id='write'>✍️ Write</a> 
+{theme.isLoggedIn?   <span><a onClick={(e)=>{history.push('/createBlogs')}} id='write'><i class="fa-solid fa-pen-to-square"></i> Write</a> 
 <button id='logout' onClick={(e)=>{
 
 if (window.confirm("Are you sure you want to logout?")){
@@ -109,7 +109,7 @@ history.push('/')
 
 </div>
 
-<div className='dropdown-content'>{theme.findBlog? <span >
+{theme.findBlog?<div className='dropdown-content'> <span >
   
 <p>Topics</p>
 <div>
@@ -165,8 +165,8 @@ return(
    </div>
 
 )
-})}</span>
-:<div></div>}</div>
+})}</span></div>
+:<div></div>}
 
 
 

@@ -50,11 +50,10 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
                                    history.push('/author')
                                 })
             }}><img src={item.user.image_url}
-            alt='userImage' className="profilePic"/>
+            alt='userImage' className="profilePic3"/>
             <b >{item.user.username}</b>
         </span>  
-          <span> <h1>{item.title}  </h1>  { item.tags.length!==0?<div> {item.tags.map(item=>{
-    return(<div className="blogBadge" id={item.id}><p className="tag">🏷{item.name}</p></div>)})}</div>:<div></div>}  </span>   
+          <span id='blogTitle'> <h1>{item.title}  </h1>    </span>   
 <p className='dox2'> {item.blog}</p>
 <div className="pubBtn" >{!showComments?<span  >
  <em> 
