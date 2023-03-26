@@ -418,14 +418,14 @@ textarea::-webkit-scrollbar-thumb{
 }
 
 .title{
-  width: fit-content;
+  width:1200px;
 
   height: fit-content;
 background-color: transparent;
   font-size: 50px;
   font-weight: 600;
-  color: white;
-
+ 
+color: white;
   border: none;
   padding: 10px;
   border-radius: 10px;
