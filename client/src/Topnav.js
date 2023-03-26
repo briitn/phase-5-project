@@ -70,9 +70,9 @@ theme.setFilteredBlogs(res)
 
 theme.setFindblog()
 
-setTimeout(() => {
+
    history.push('/search')
-},3000);
+
 })
 }
 else {
