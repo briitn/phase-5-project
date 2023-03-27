@@ -6,16 +6,15 @@ function CreateBlogs(){
     document.title= 'Channel/view-write'
     const theme=useContext(ThemeContext)
     const [loading, setLoading]=useState(false)
-    const userSearched=localStorage.getItem('search')
-    console.log(userSearched)
+
 const getEdit=localStorage.getItem('editingBlog')
 const getTitle=localStorage.getItem('editingTitle')
 const getId=localStorage.getItem('id')
 const [title, setTiltle]=useState('')
 const [aiTags, setAiTags]=useState([])
     const [blog, setBlog]=useState('')
-    const [saveBlog, setSaveBlog]=useState('')
-console.log(getEdit)
+  
+console.log(getTitle)
 
 
 const [id, setId]=useState()
@@ -24,7 +23,7 @@ const [id, setId]=useState()
 
 
 useEffect(()=>{if (getEdit){
-    console.log('ll')
+   
 
     setId(getId)
 setTiltle(getTitle)
@@ -41,7 +40,7 @@ const [showAiTags, setShowAiTags]=useState(false)
 
 function submitBlog(e){
     setLoading(true)
-if (theme.editBlog){
+if (getEdit){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(
@@ -63,9 +62,9 @@ if (theme.editBlog){
         res.json().then((res)=>{
            
       
-           theme.setAllBlogs([res, ...theme.allBlogs])
+           theme.setAllBlogs([...theme.allBlogs,res])
            theme.setAUser([res])
-           setShowAiTags(true)
+           history.push('/author')
         })
     }
     else {

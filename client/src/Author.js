@@ -20,7 +20,7 @@ let username
 const history=useHistory()
     const mapUserStuff=theme.aUser?.map(item=>{
         holdPost.unshift(item.posts)
-      
+      console.log(item.posts)
         id=item.id
         username=item.username
       
@@ -48,7 +48,7 @@ return (
 <h1>{username}</h1>
 <h2>All Posts ({holdPost[0]?.length}) </h2>
     {holdPost[0]?.map(item=>{
-   console.log(holdPost[0].length)
+
         return(<div key={item.id} >
             <hr></hr>
              <div className="container">
@@ -73,14 +73,16 @@ fetch('/views',{
 
 console.log([res])
     theme.setReadBlog([res])
-    console.log(theme.readblog) 
+  
     history.push('/blog')      
              })
 
 
 }}>read more</p>
-{id===theme.userId?<span><p onClick={(e)=>{theme.setEditBlog(item)
-fetch(`/posts/${item.id}`)
+{id===theme.userId?<span><p onClick={(e)=>{
+localStorage.setItem('editingBlog', JSON.stringify(item.blog) )
+localStorage.setItem('editingTitle', JSON.stringify(item.title) )
+localStorage.setItem('id', JSON.stringify(item.id) )
 history.push('/createBlogs')}}>edit</p>
 <p onClick={(e)=>{
    if( window.confirm("Are you sure you want to delete your post?")){

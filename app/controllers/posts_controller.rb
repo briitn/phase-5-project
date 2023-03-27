@@ -5,10 +5,10 @@ class PostsController < ApplicationController
         post=@current_user.posts.create!(post_params)
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
-            api_key = ENV["OPENAI_API_KEY"]
+            
        
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and PLEASE separate them with commas and do not number them: #{params[:blog]} "
-               chatbot = Chatbot.new(api_key)
+               chatbot = Chatbot.new
                response = chatbot.respond_to(message)
             
             arr=response.dig("choices", 0, "message", "content").split(',') 
@@ -76,7 +76,9 @@ def search
    render json: post
  
 end
-
+def show
+    session[:post_id]=params[:id]
+end
 def shoe
  
     post=Post.find(session[:post_id])
