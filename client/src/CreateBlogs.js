@@ -22,13 +22,14 @@ const [id, setId]=useState()
 
 
 
-useEffect(()=>{if (getId){
+useEffect(()=>{if (getEdit){
    
 
-    setId(getId)
+ 
 setTiltle(getTitle)
 setBlog(getEdit)
-}},[])
+
+}else if (getId){setId(getId)}},[])
 
 const history=useHistory()
 
@@ -152,6 +153,7 @@ onClick={(e)=>{
                 <div><textarea
                   value={blog} onChange={(e)=>{setBlog(e.target.value)
                    localStorage.setItem('editingBlog', e.target.value)
+
                 
                   }} placeholder='Write' className='article'></textarea>
                <span className="pubBtn">{!loading?<button className="button" onClick={(e)=>{submitBlog()}}>Publish</button>:<button className="button">Publishing</button>}</span> 
