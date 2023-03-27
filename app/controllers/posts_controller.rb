@@ -6,9 +6,11 @@ class PostsController < ApplicationController
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
             
-       
+            @api_key=OpenAI.configure do |config|
+                config.access_token = ENV.fetch('OPENAI_API_KEY')
+            end
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and PLEASE separate them with commas and do not number them: #{params[:blog]} "
-               chatbot = Chatbot.new
+               chatbot = Chatbot.new(@api_key)
                response = chatbot.respond_to(message)
             
             arr=response.dig("choices", 0, "message", "content").split(',') 

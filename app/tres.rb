@@ -1,1 +1,3 @@
-puts  ENV.fetch('OPENAI_API_KEY')
+a= p ENV.fetch('OPENAI_API_KEY')
+
+ a
