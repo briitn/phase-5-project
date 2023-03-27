@@ -14,7 +14,7 @@ const [title, setTiltle]=useState('')
 const [aiTags, setAiTags]=useState([])
     const [blog, setBlog]=useState('')
   
-console.log(getTitle)
+console.log(getId)
 
 
 const [id, setId]=useState()
@@ -22,7 +22,7 @@ const [id, setId]=useState()
 
 
 
-useEffect(()=>{if (getEdit){
+useEffect(()=>{if (getId){
    
 
     setId(getId)
@@ -40,7 +40,7 @@ const [showAiTags, setShowAiTags]=useState(false)
 
 function submitBlog(e){
     setLoading(true)
-if (getEdit){
+if (getId){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(
@@ -146,6 +146,7 @@ onClick={(e)=>{
                
                 value={title} onChange={(e)=>{
                  setTiltle(e.target.value)
+                 localStorage.setItem('editingTitle', e.target.value)
                 }}className="title"/>
                 </span>
                 <div><textarea

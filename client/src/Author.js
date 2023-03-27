@@ -6,7 +6,9 @@ function Author(){
     document.title= 'Channel/view-user'
     const theme=useContext(ThemeContext)
 
-    
+    localStorage.removeItem("editingBlog");
+localStorage.removeItem("id");
+localStorage.removeItem("editingTitle");
  useEffect(()=> {
         fetch('/authors')
         .then(res=>res.json())
