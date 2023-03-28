@@ -65,10 +65,6 @@ const theme=useContext(ThemeContext)
 
 
         <div className='fox'>
-       
-   
-   
-    
        <p className="sign" align="center">Sign in</p>
         <form onSubmit={changeSubmit} className="form">
             <FormField>
