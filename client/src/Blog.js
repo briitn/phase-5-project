@@ -36,7 +36,7 @@ let id
 
 const mapBlog=theme.readBlog?.map(item=>{
 id=item.id
-item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): console.log('lol')
+item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): localStorage.removeItem('tag')
 
     return (
         <div key={item.id} >

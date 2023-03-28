@@ -22,7 +22,7 @@ def index
  
 
 posts=Post.all
-        render json: posts.slice(0...20)
+        render json: posts.shuffle.slice(0...30)
 
 
 end
@@ -48,11 +48,7 @@ elsif params[:views]
     render json: post
 
 end
-if params[:tag]
-    session[:tag_name]=params[:tag]
 
- 
-end
 if params[:blog]
 
   user=User.find_by(id: session[:user_id]);

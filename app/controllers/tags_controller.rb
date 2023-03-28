@@ -36,11 +36,12 @@ render json: tag
     end
 
     def recommend
-        if session[:tag_name] 
+     
+        if params[:name] 
             tag=Tag.find_by(name: session[:tag_name])
             render json: tag.posts.shuffle()
      
-        elsif session[:author_id] && !session[:tag_name]
+        elsif session[:author_id] 
        user=User.find(session[:author_id])
          render json: user.posts.shuffle()
 

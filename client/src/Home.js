@@ -44,7 +44,6 @@ history.push('/author')
 <p>👁{item.views}</p>
 <p  onClick={()=>{theme.setReadBlog([item])
 
-item.tags.length!==0?theme.setTagName(item.tags[0].name):theme.setTagName()
 
 fetch('/views',{
     method:"PATCH",
@@ -54,7 +53,7 @@ fetch('/views',{
            id: item.id,
          views: true,
      
-         tag: theme.tagName
+    
         }
     )
 
