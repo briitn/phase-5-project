@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         
       end
 
-      def shoe
+      def find_user
         
 user=User.find(session[:user_id])
 

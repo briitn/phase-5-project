@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
-    skip_before_action :authorize, only: [:index, :search, :shoe, :update]
+    skip_before_action :authorize, only: [:index, :search, :get_posts, :update]
     def create
 
         post=@current_user.posts.create!(post_params)
             session[:post_id]=post.id
             session[:author_id]=@current_user.id
             
-            @api_key=OpenAI.configure do |config|
-                config.access_token = ENV.fetch('OPENAI_API_KEY')
-            end
+           
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and PLEASE separate them with commas and do not number them: #{params[:blog]} "
                chatbot = Chatbot.new(@api_key)
                response = chatbot.respond_to(message)
@@ -21,12 +19,10 @@ class PostsController < ApplicationController
 
 def index
 
-   if !session[:tag_name]
-     session[:tag_name]='Ruby'
-   end
+ 
 
 posts=Post.all
-        render json: posts
+        render json: posts.slice(0...20)
 
 
 end
@@ -37,12 +33,10 @@ def update
     post=Post.find(params[:id])
 
     session[:author_id]=post.user.id;
-    session[:page_views]=1
+
     session[:post_id]=params[:id]
 
-    if session[:tag_name]
-    session.delete :tag_name
-    end
+   
 if params[:likes]
     post.update(likes: post.likes+1)
     render json: post
@@ -81,7 +75,7 @@ end
 def show
     session[:post_id]=params[:id]
 end
-def shoe
+def get_posts
  
     post=Post.find(session[:post_id])
     if post.tags.length!=0

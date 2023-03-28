@@ -24,8 +24,9 @@ let l
 }
 
 
+const [aiTags, setAiTags]=useState([])
 
-
+const [showAiTags, setShowAiTags]=useState(false)
   const [allBlogs, setAllBlogs]=useState([])
   const [readBlog, setReadBlog]=useState([])
   const [editBlog, setEditBlog]=useState()
@@ -98,33 +99,12 @@ useEffect(()=>{
 
 
 
-useEffect(()=>{
-
-  fetch("/recommend",
-  {method:"POST",
-  headers:{"Content-Type":"application/json"},
-  body: JSON.stringify(
-      {
-    name: tagName
-      }
-  )
-  
-  
-  })
-  .then(res=>res.json())
-  .then(res=>{
-
-setRecommendedStuff(res)
-  })
-
-},[])
-
 
 
   return (
   <ThemeContext.Provider value={{setRefresh:setRefresh, setAUser:setAUser, aUser:aUser,setFilteredBlogs:setFilteredBlogs, findBlog:findBlog, isLoggedIn:isLoggedIn, userStuff:userStuff,setFindblog:setFindblog, setIsLoggedIn:setIsLoggedIn, refresh:refresh,readBlog:readBlog,
   setUserStuff:setUserStuff, userId:id, allBlogs:allBlogs,
-  setAllBlogs:setAllBlogs, setReadBlog:setReadBlog, setId:setId, setTagName:setTagName, tagName:tagName,fromAblog:fromAblog, filteredBlogs:filteredBlogs,allTags:allTags, setFromAblog:setFromAblog,recommendedStuff:recommendedStuff, allUsers:allAuthors, setEditBlog:setEditBlog, editBlog:editBlog, currentUser:currentUser, userSearched: userSearched, setUserSearched:setUserSearched ,setCurrentUser:setCurrentUser}}> <Fragment>
+  setAllBlogs:setAllBlogs, setReadBlog:setReadBlog, setId:setId, setTagName:setTagName, tagName:tagName,fromAblog:fromAblog, filteredBlogs:filteredBlogs,allTags:allTags, setFromAblog:setFromAblog,recommendedStuff:recommendedStuff, setRecommendedStuff:setRecommendedStuff, allUsers:allAuthors, setEditBlog:setEditBlog, editBlog:editBlog, currentUser:currentUser, userSearched: userSearched, setUserSearched:setUserSearched ,setCurrentUser:setCurrentUser, aiTags:aiTags, setAiTags:setAiTags, setShowAiTags:setShowAiTags, showAiTags:showAiTags}}> <Fragment>
          
   
     <BrowserRouter>

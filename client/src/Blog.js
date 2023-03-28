@@ -6,7 +6,7 @@ function Blog(){
     document.title= 'Channel/view-blog'
 
 const theme=useContext(ThemeContext)
-console.log(theme.readBlog)
+
 const [comments,setComments]=useState()
 const [comment, setComment]=useState('')
 const history=useHistory()
@@ -33,9 +33,10 @@ useEffect(()=>{
         </div>)
     })
 let id
+
 const mapBlog=theme.readBlog?.map(item=>{
 id=item.id
-item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
+item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): console.log('lol')
 
     return (
         <div key={item.id} >
@@ -53,8 +54,12 @@ item.tags.length!==0?theme.setTagName(item.tags[0].name): console.log('lol')
             }}><img src={item.user.image_url}
             alt='userImage' className="profilePic3"/>
             <b >{item.user.username}</b>
-        </span>  
+        </span>
+        { item.tags.length!==0?<div> {item.tags.map(item=>{
+        
+        return(<div className="blogBadge" id={item.id}><p className="tag"><i className="fas fa-tag"></i>{item.name}</p></div>)})}</div>:<div></div>}  
           <span id='blogTitle'> <h1>{item.title}  </h1>    </span>   
+          
 <p className='dox2'> {item.blog}</p>
 <div className="pubBtn" >{!showComments?<span  >
  <em> 
@@ -86,11 +91,12 @@ theme.setFromAblog(true)
 localStorage.setItem('fromBlog', "Create an account to like post" )
 history.push('/signup')
 }}}>❤️{item.likes}</em>}</em>
+
 <em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:
 <div  className="forCs">
 <button id='x' onClick={()=>{setShowComments(false)}}>x</button>
 
-    <textarea value={comment} className='iComment'
+ <textarea value={comment} className='iComment'
     placeholder='comment' onChange={(e)=>{setComment(e.target.value)}} onClick={(e)=>{ 
         if (theme.isLoggedIn===false){
 theme.setFromAblog(true)
@@ -123,7 +129,7 @@ history.push('/signup')
     )
 })
 
-
+console.log(theme.tagName)
 return (<Fragment>
      <Topnav/>
   <div>{mapBlog}</div>

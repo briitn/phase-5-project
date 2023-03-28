@@ -82,8 +82,8 @@ console.log([res])
 
 }}>read more</p>
 {id===theme.userId?<span><p onClick={(e)=>{
-localStorage.setItem('editingBlog', JSON.stringify(item.blog) )
-localStorage.setItem('editingTitle', JSON.stringify(item.title) )
+localStorage.setItem('editingBlog', item.blog)
+localStorage.setItem('editingTitle', item.title )
 localStorage.setItem('id', JSON.stringify(item.id) )
 history.push('/createBlogs')}}>edit</p>
 <p onClick={(e)=>{

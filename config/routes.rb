@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get '/searched', to: 'sessions#search'
   get '/authors', to: "sessions#find_author"
   post '/posts/search', to: 'posts#search'
-  get '/aBlog', to: 'posts#shoe'
+  get '/aBlog', to: 'posts#get_posts'
   post "users/login", to: "sessions#create"
-  get 'loggedin', to: "users#shoe"
+  get 'loggedin', to: "users#find_user"
   patch '/likes', to: "posts#update"
   patch '/views', to: "posts#update"
   patch '/posts', to: "posts#update"
