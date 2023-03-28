@@ -103,7 +103,7 @@ theme.setFromAblog(true)
 localStorage.setItem('fromBlog', "Create an account to comment" )
 history.push('/signup')
     }}}></textarea>
-   {comment?<button onClick={()=>{ fetch('/comments',{
+   {comment.trim().length!==0?<button onClick={()=>{ fetch('/comments',{
     method: "POST",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(
@@ -116,10 +116,21 @@ history.push('/signup')
 
 
 
-  }).then(res=>res.json())
-  .then(res=>{
-  setComments([res,...comments])
-  })}}>Sumbit</button>:<p></p>}
+  }).then((res)=>{
+    if (res.ok){
+        res.json().then((res)=>{
+           
+            setComments([res,...comments])
+        })
+    }
+    else {
+        res.json().then((err) => {
+  
+       alert(err.errors)})
+}
+
+    })
+  }}>Sumbit</button>:<p></p>}
    {mapComments}
    
     </div>}
