@@ -5,7 +5,7 @@ import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
 
 function Home(){
-
+    document.title= 'Channel'
     const theme=useContext(ThemeContext)
   
 theme.allTags.sort((a, b) =>b.posts.length- a.posts.length);
