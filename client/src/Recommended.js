@@ -24,11 +24,11 @@ useEffect(()=>{
     })
     .then(res=>res.json())
     .then(res=>{
-  console.log(res)
+  
   theme.setRecommendedStuff(res)
     })
   
-  },[theme.tagName])
+  },[])
   
 const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
     eArray.push(item.user)

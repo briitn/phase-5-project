@@ -28,21 +28,31 @@ function Signup(){
                   image_url: imageUrl
   
               })
-          }).then(r=>{if (r.ok) {
-         
-              setLoading(true)
-              setTimeout(() => {
-                theme.setIsLoggedIn(true)
-                fromBlog?history.push('/blog'):history.push('/')
-            localStorage.clear()
-              }, 1000); 
-              r.json();
-            } else {
-              r.json().then((err) => 
-              alert(err.errors));
-            }})
+          }) .then((res)=>{
+            if (res.ok){
+                res.json().then((res)=>{ 
+                  console.log(res)
+                  theme.setUserStuff([res])
+                  theme.setId(res.id)
+                  theme.setCurrentUser(res.username)
+            theme.setIsLoggedIn(true)
+                    setLoading(true)
+                    setTimeout(() => {
+                      theme.setIsLoggedIn(true)
+                      fromBlog?history.push('/blog'):history.push('/')
+                  localStorage.clear()
+                 
+                })
+            })}
+            else {
+                res.json().then((err) => {
+                alert(err.errors)})
+            }
+
+        })
       }
       
+           
       function changePass(e){
 
           setPassword(e.target.value)

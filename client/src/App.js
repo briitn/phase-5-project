@@ -64,7 +64,7 @@ useEffect(()=>{
               setIsLoggedIn(false)
               })
   }
-  }) },[isLoggedIn])
+  }) },[])
 
     useEffect(()=>{
       fetch("/users/")
