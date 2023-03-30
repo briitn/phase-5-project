@@ -235,7 +235,7 @@ height:fit-content;
 .forCs{
   
   position: sticky;
-width: auto;
+width:fit-content;
  height:fit-content;
 background-color:transparent;
 top: 0px;
@@ -405,7 +405,12 @@ right: 0px;
 white-space: pre-wrap
 
 }
+#blog-foot{
 
+position:absolute;
+left: 630px;
+
+}
 
 
 textarea::-webkit-scrollbar{

@@ -13,7 +13,7 @@ localStorage.removeItem("editingTitle");
         fetch('/authors')
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
-        console.log(res)
+   
 })
     },[])
 const holdPost=[]
@@ -22,7 +22,7 @@ let username
 const history=useHistory()
     const mapUserStuff=theme.aUser?.map(item=>{
         holdPost.unshift(item.posts)
-      console.log(item.posts)
+    
         id=item.id
         username=item.username
       
@@ -41,7 +41,7 @@ const history=useHistory()
     holdPost[0]?.sort((a, b) =>b.id- a.id
     )
 
-    console.log(username)
+   
 return (
 <Fragment>
  
@@ -73,7 +73,7 @@ fetch('/views',{
 }) .then(res=>res.json())
 .then(res=>{
 
-console.log([res])
+
     theme.setReadBlog([res])
   
     history.push('/blog')      
@@ -82,6 +82,7 @@ console.log([res])
 
 }}>read more</p>
 {id===theme.userId?<span><p onClick={(e)=>{
+    theme.setShowAiTags(false)
 localStorage.setItem('editingBlog', item.blog)
 localStorage.setItem('editingTitle', item.title )
 localStorage.setItem('id', JSON.stringify(item.id) )
@@ -93,7 +94,7 @@ history.push('/createBlogs')}}>edit</p>
         method: "DELETE"
     }).then(res=>res.json())
     .then(res=>{theme.setAUser([res])
-    console.log(res)})
+  })
  }
 }}>Delete</p></span>:null}
  </div>

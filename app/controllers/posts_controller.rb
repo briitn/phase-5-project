@@ -8,7 +8,7 @@ class PostsController < ApplicationController
             
            
                message = "please follow these instructions strictly: generate topics that are only one word long for this blog and PLEASE separate them with commas and do not number them: #{params[:blog]} "
-               chatbot = Chatbot.new(@api_key)
+               chatbot = Chatbot.new
                response = chatbot.respond_to(message)
             
             arr=response.dig("choices", 0, "message", "content").split(',') 

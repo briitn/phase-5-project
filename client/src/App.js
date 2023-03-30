@@ -13,15 +13,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { useState, useEffect, Fragment} from 'react';
 import { ThemeContext } from 'styled-components';
 function App() {
-let l
-
-  function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array
-}
 
 
 const [aiTags, setAiTags]=useState([])
@@ -82,7 +73,7 @@ useEffect(()=>{
 
 
 
-  setAllBlogs(shuffleArray(res))
+  setAllBlogs(res)
  
 
     })

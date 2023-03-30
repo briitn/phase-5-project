@@ -2,56 +2,37 @@ import { useState, useEffect, useContext, Fragment } from "react"
 import { useHistory } from "react-router-dom"
 import { ThemeContext } from "styled-components"
 import Topnav from "./Topnav"
+import Comments from "./Comments"
 function Blog(){
     document.title= 'Channel/view-blog'
-
 const theme=useContext(ThemeContext)
 
-const [comments,setComments]=useState()
-const [comment, setComment]=useState('')
 const history=useHistory()
-const [showComments, setShowComments]=useState(false)
+
 useEffect(()=>{ if (theme.readBlog.length===0){
     fetch('/aBlog')
     .then(res=>res.json())
 .then(res=>{theme.setReadBlog([res])
 })}
 },[])
-useEffect(()=>{
-    fetch("/comments")
-    .then(res=>res.json())
-    .then(res=>{
 
-     setComments(res)
-    })},[])
-    const mapComments=comments?.map(item=>{
-        return(<div key={item.id}>
-            <hr></hr>
-            <img src={item.user.image_url}
-            alt='userImage' className="profilePic"/>
-           <p>{item.comment}</p> 
-        </div>)
-    })
+   
 let id
-
 const mapBlog=theme.readBlog?.map(item=>{
 id=item.id
 item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): localStorage.removeItem('tag')
 
     return (
-        <div key={item.id} >
+        <span key={item.id} >
       
           <span onClick={(e)=>{
                    fetch(`/users/${item.user.id}`)
                    .then(res=>res.json())
                    .then(res=>{
-                   
-               
-                       theme.setAUser([res])
-                           
-                                   history.push('/author')
+                   theme.setAUser([res])
+                   history.push('/author')
                                 })
-            }}><img src={item.user.image_url}
+                            }}><img src={item.user.image_url}
             alt='userImage' className="profilePic3"/>
             <b >{item.user.username}</b>
         </span>
@@ -61,7 +42,7 @@ item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): localStorage
           <span id='blogTitle'> <h1>{item.title}  </h1>    </span>   
           
 <p className='dox2'> {item.blog}</p>
-<div className="pubBtn" >{!showComments?<span  >
+<div className="pubBtn" ><span  >
  <em> 
 {theme.isLoggedIn?<p onClick={(e)=>fetch('/views',{
     method:"PATCH",
@@ -92,65 +73,18 @@ localStorage.setItem('fromBlog', "Create an account to like post" )
 history.push('/signup')
 }}}>❤️{item.likes}</em>}</em>
 
-<em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:
-<div  className="forCs">
-<button id='x' onClick={()=>{setShowComments(false)}}>x</button>
 
- <textarea value={comment} className='iComment'
-    placeholder='comment' onChange={(e)=>{setComment(e.target.value)}} onClick={(e)=>{ 
-        if (theme.isLoggedIn===false){
-theme.setFromAblog(true)
-localStorage.setItem('fromBlog', "Create an account to comment" )
-history.push('/signup')
-    }}}></textarea>
-   {comment.trim().length!==0?<button onClick={()=>{ fetch('/comments',{
-    method: "POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify(
-        {
-         post_id: id,
-        user_id: theme.userId,
-        comment
-        }
-    )
-
-
-
-  }).then((res)=>{
-    if (res.ok){
-        res.json().then((res)=>{
-           
-            setComments([res,...comments])
-        })
-    }
-    else {
-        res.json().then((err) => {
-  
-       alert(err.errors)})
-}
-
-    })
-  }}>Sumbit</button>:<p></p>}
-   {mapComments}
-   
-    </div>}
-
+</span>
     </div>   
-        </div>
+        </span>
     )
 })
 
 console.log(theme.tagName)
 return (<Fragment>
      <Topnav/>
-  <div>{mapBlog}</div>
-
- 
-  
+  {mapBlog}
+<footer id="blog-foot"><Comments /></footer>
 </Fragment>)
-
 }
-
-
-
 export default Blog
