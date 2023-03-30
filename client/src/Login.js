@@ -36,9 +36,10 @@ const theme=useContext(ThemeContext)
                  
                 })
             }
-            else {
+            else {setLoading(false)
                 res.json().then((err) => {
                 alert(err.errors)})
+
             }
 
         })

@@ -12,7 +12,7 @@ function Signup(){
       =useState('')
      const [bio, setBio]=useState('')
      const [loading, setLoading]=useState(false)
-  
+  console.log(imageUrl)
      const history=useHistory()
 
       function changeSubmit(e){
@@ -25,7 +25,7 @@ function Signup(){
                   username:newUsername,
                   password,
                    bio,
-                  image_url: imageUrl
+                  image_url: imageUrl?imageUrl:"https://png.pngtree.com/png-vector/20220608/ourmid/pngtree-unidentified-user-illustration-mysterious-social-png-image_4816405.png"
   
               })
           }) .then((res)=>{
@@ -129,7 +129,7 @@ function Signup(){
            
              </form> 
              <span className="bottom"><p>Already have an account?<a href="/login">Sign in</a></p>
-         {loading?<div>'Account succesfully created. Redirecting to home page...' </div>:<div></div>}</span> 
+         {loading?<div>'Creating account... please wait' </div>:<div></div>}</span> 
           </div>
        
           </Fragment>
