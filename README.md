@@ -1,4 +1,4 @@
-# Phase-4-project
+# Phase-5-project
 ## Description
 This is a blogging webiste that users can use to read and create blogs. My blogging website has severaal tables that all have a relationship and work together to interact with the database and make my app run. I have a users table that has many posts,  which has many comments and post_tags(the join table). Through this, each post can have many tags and each tag can have many posts through the join table. With these relations set up, I can get all the info i need to make my app run.
 
