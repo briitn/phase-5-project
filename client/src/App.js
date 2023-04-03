@@ -42,8 +42,7 @@ useEffect(()=>{
   .then((res)=>{
       if (res.ok){
           res.json().then((res)=>{
-        
-              setUserStuff([res])
+         setUserStuff([res])
               setId(res.id)
               setCurrentUser(res.username)
         setIsLoggedIn(true)
@@ -53,9 +52,8 @@ useEffect(()=>{
           res.json().then((err) => {
         
               setIsLoggedIn(false)
-              })
-  }
-  }) },[])
+              })}
+  }) },[]);
 
     useEffect(()=>{
       fetch("/users/")
@@ -63,30 +61,22 @@ useEffect(()=>{
       .then(res=>{
   
         setAllAuthors(res)
-      })},[])
+      })},[]);
  
 useEffect(()=>{
     fetch("/posts")
 .then(res=>res.json())
 .then(res=>{
-
-
-
-
-  setAllBlogs(res)
- 
-
-    })
-}, [])
+setAllBlogs(res)
+  })
+}, []);
 
 useEffect(()=>{
   fetch("/tags")
 .then(res=>res.json())
 .then(res=>{  setAllTags(res)
-  
-
   })
-}, [])
+}, []);
 
 
 

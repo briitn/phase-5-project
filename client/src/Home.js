@@ -17,7 +17,7 @@ localStorage.removeItem("editingTitle");
 
 
 const mapBlogs=theme.allBlogs?.map(item=>{
-
+console.log(item)
     return (
         <div key={item.id} className='container'>
             <hr></hr>
@@ -34,9 +34,9 @@ fetch(`/users/${item.user.id}`)
 history.push('/author')
 })
            }}
-           >{item.user.username}</em>
+           >{item.user?.username}</em>
             <div><b>{item.title}</b>
-            { item.tags.length!==0?<div> {item.tags.map(item=>{
+            { item.tags?.length!==0?<div> {item.tags.map(item=>{
         
     return(<div className="blogBadge" id={item.id}><p className="tag"><i className="fas fa-tag"></i>{item.name}</p></div>)})}</div>:<div></div>}
             </div>
@@ -75,7 +75,7 @@ fetch('/views',{
         </div>
     )
 });
-console.log(theme.allTags)
+
 const mapThemeTags=theme.allTags.slice(0,3).map(item=>{
     return(
            <div key={item.id} className='badge'>

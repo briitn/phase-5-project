@@ -18,13 +18,8 @@ class PostsController < ApplicationController
            end;
 
 def index
-
- 
-
 posts=Post.all
-        render json: posts.shuffle.slice(0...30)
-
-
+render json: posts.shuffle.slice(0...30)
 end
 
 def update

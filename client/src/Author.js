@@ -5,17 +5,18 @@ import Topnav from "./Topnav"
 function Author(){
     document.title= 'Channel/view-user'
     const theme=useContext(ThemeContext)
-
-    localStorage.removeItem("editingBlog");
+//after user submits blog they are redirected to this page and these local storage items are cleared
+localStorage.removeItem("editingBlog");
 localStorage.removeItem("id");
 localStorage.removeItem("editingTitle");
+
  useEffect(()=> {
-        fetch('/authors')
+   fetch('/authors')
         .then(res=>res.json())
     .then(res=>{theme.setAUser([res])
    
 })
-    },[])
+},[])
 const holdPost=[]
 let id
 let username
@@ -38,6 +39,7 @@ const history=useHistory()
                 </div>
     )
     })
+    // sort so new post go to the top
     holdPost[0]?.sort((a, b) =>b.id- a.id
     )
 
@@ -83,6 +85,7 @@ fetch('/views',{
 }}>read more</p>
 {id===theme.userId?<span><p onClick={(e)=>{
     theme.setShowAiTags(false)
+    // set local storage so blog that is beign edited does not go away on refresh
 localStorage.setItem('editingBlog', item.blog)
 localStorage.setItem('editingTitle', item.title )
 localStorage.setItem('id', JSON.stringify(item.id) )

@@ -10,13 +10,10 @@ class UsersController < ApplicationController
         render json: user
       end
       def show
-      
-          user=User.find(params[:id])
+       user=User.find(params[:id])
           session[:author_id]=user.id
           render json: user
-          
-        
-      end
+          end
 
       def find_user
         

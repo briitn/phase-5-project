@@ -226,25 +226,20 @@ height:fit-content;
   border-radius: 1px;
   padding: 10px;
   margin: 10px 0;
-
 }
 .bottom{
   position: relative;
   left: 100px;
 }
 .forCs{
-  
-  position: sticky;
+position: sticky;
 width:fit-content;
  height:fit-content;
 background-color:transparent;
 top: 0px;
-  left: 0px;
 border-radius: 10px;
-border: 0.1px solid #000000;
+border: 0.1px solid #ffffff;
 padding: 50px;
-
-
 }
 .appName {
   padding-top: 40px;
@@ -267,6 +262,7 @@ padding: 50px;
   margin: 10px 0;
 
 }
+
 .sc{   
   text-align: center;
   padding-top: 15px;}
@@ -435,7 +431,7 @@ color: white;
   padding: 10px;
   border-radius: 10px;
 }
-header
+
 .article{
     width: 100%;
     background-color: transparent;
@@ -450,10 +446,7 @@ header
     padding: 10px;
     border-radius: 10px;
 }
-.title::placeholder,
-.article::placeholder{
 
-}
 .pubBtn{
 
   position:relative;

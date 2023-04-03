@@ -15,16 +15,22 @@ const [title, setTiltle]=useState('')
     const [blog, setBlog]=useState('')
   
 const [id, setId]=useState()
-useEffect(()=>{if (getEdit){
+useEffect(()=>{
+    if (getEdit)
+    {
    setTiltle(getTitle)
 setBlog(getEdit)
 
-}if (getId){setId(getId)}},[])
-console.log(id)
+};
+if (getId)
+{setId(getId)}},
+[])
+
 const history=useHistory()
 
  function submitBlog(e){
     setLoading(true)
+    //since getId is only set when a user goes to edit blog, we use that to check whether a blog is being edited or being uploaded for the first time
 if (getId){
     fetch(`/posts/${id}`,{  method:"PATCH",
     headers:{"Content-Type":"application/json"},
@@ -66,8 +72,6 @@ fetch(`/posts`,{
                 body: JSON.stringify(
                     {
                         user_id: theme.userId ,
-                        id,
-
                         blog,
                         likes: 0,
                         title,

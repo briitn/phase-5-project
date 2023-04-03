@@ -16,7 +16,8 @@ useEffect(()=>{
     .then(res=>{
 
      setComments(res)
-    })},[])
+    })},[]);
+
     const mapComments=comments?.map(item=>{
         return(<div key={item.id}>
             <hr></hr>
@@ -25,23 +26,23 @@ useEffect(()=>{
            <p>{item.comment}</p> 
         </div>)
     })
-let id=theme.readBlog[0]?.id
 
 
-console.log(theme.readBlog[0]?.id)
+
+
 
 
 return (<span>
-    {!showComments?<span  >
+    {!showComments?<span className="holdComments" >
  
-
-
- <em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:
- <div  className="forCs">
+<em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>  :  <div  className="forCs">
  <button id='x' onClick={()=>{setShowComments(false)}}>x</button>
  
-  <textarea value={comment} className='iComment'
-     placeholder='comment' onChange={(e)=>{setComment(e.target.value)}} onClick={(e)=>{ 
+  <textarea value={comment} 
+  className='iComment'
+     placeholder='comment'
+     onChange={(e)=>{setComment(e.target.value)}} 
+     onClick={(e)=>{ 
          if (theme.isLoggedIn===false){
  theme.setFromAblog(true)
  localStorage.setItem('fromBlog', "Create an account to comment" )
@@ -52,7 +53,7 @@ return (<span>
      headers:{"Content-Type":"application/json"},
      body: JSON.stringify(
          {
-          post_id: id,
+          post_id: theme.readBlog[0]?.id,
          user_id: theme.userId,
          comment
          }
