@@ -43,7 +43,18 @@ const history=useHistory()
     holdPost[0]?.sort((a, b) =>b.id- a.id
     )
 
-   
+    const observer= new IntersectionObserver((entries)=>{
+        entries?.forEach((entry)=>{
+    
+            if(entry.isIntersecting){
+                entry.target.classList.add('show')
+            }
+            else {entry.target.classList.remove('show')}
+        })
+    })
+    
+    const hiddenElements=document.querySelectorAll('.container')
+    hiddenElements.forEach((el)=>{observer.observe(el)}) 
 return (
 <Fragment>
  

@@ -1,5 +1,13 @@
 class AddViewsToPosts < ActiveRecord::Migration[6.1]
   def change
-    add_column :posts, :views, :integer
+    reversible do |dir|
+      dir.up do
+        add_column :posts, :views, :integer
+      end
+  
+      dir.down do
+        add_column :posts, :views, :integer
+      end
+    end
   end
 end

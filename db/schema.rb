@@ -28,6 +28,20 @@ ActiveRecord::Schema.define(version: 2023_03_30_041955) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "hashtags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "views"
+  end
+
+  create_table "post_hashtags", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "post_tags", force: :cascade do |t|
     t.integer "post_id"
     t.integer "tag_id"

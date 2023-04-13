@@ -13,11 +13,12 @@ class SessionsController < ApplicationController
     end
 def search 
 
-if session[:tag_name] && !session[:post_title]
+if session[:tag_name]
     tag=Tag.find_by(name: session[:tag_name])
         
     render json: tag.posts
 elsif session[:post_title]
+
 title= session[:post_title]
     posts=Post.all
     post= posts.where("title LIKE ?", "%" + session[:post_title]+ "%")

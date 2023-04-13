@@ -29,6 +29,9 @@ render json: tag
     end
 
     def tag_posts
+        if session[:title]
+            session.delete :title
+        end
         tag=Tag.find_by(name: params[:name])
         session[:tag_name]=params[:name]
         render json: tag.posts
@@ -38,7 +41,7 @@ render json: tag
     def recommend
      
         if params[:name] 
-            tag=Tag.find_by(name: session[:tag_name])
+            tag=Tag.find_by(name: params[:name])
             render json: tag.posts.shuffle()
      
         elsif session[:author_id] 

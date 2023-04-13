@@ -14,12 +14,12 @@ const history=useHistory()
 localStorage.removeItem("editingBlog");
 localStorage.removeItem("id");
 localStorage.removeItem("editingTitle");
-
+localStorage.removeItem("search");
 
 const mapBlogs=theme.allBlogs?.map(item=>{
-console.log(item)
+
     return (
-        <div key={item.id} className='container'>
+        <div key={item.id} >
             <hr></hr>
             <img src={item.user?.image_url}
             alt='userImage' className="profilePic"/>
@@ -75,7 +75,18 @@ fetch('/views',{
         </div>
     )
 });
+const observer= new IntersectionObserver((entries)=>{
+    entries?.forEach((entry)=>{
 
+        if(entry.isIntersecting){
+            entry.target.classList.add('show')
+        }
+        else {entry.target.classList.remove('show')}
+    })
+})
+
+const hiddenElements=document.querySelectorAll('.container')
+hiddenElements.forEach((el)=>{observer.observe(el)})
 const mapThemeTags=theme.allTags.slice(0,3).map(item=>{
     return(
            <div key={item.id} className='badge'>
@@ -109,17 +120,18 @@ return (
 <div className="globe" ><img src='http://www.clker.com/cliparts/w/A/B/P/M/r/enlarged-thick-blue-wire-globe.svg' alt='blue globe'/></div>
 
     <div className="sidenav">
-    <div className="cont">
+    <div className="container">
         <b>Popular Topics</b>
-        {mapThemeTags} </div> 
+        {mapThemeTags}
         <b>Recommended Blogs</b>
 <Recommended/>
-        
+</div> 
       </div>
   
  <span>  <div className="box" >
         <h1>Picked For You</h1>
-    {mapBlogs}
+        <div className="container">    {mapBlogs}</div>
+
         </div></span> 
 
        

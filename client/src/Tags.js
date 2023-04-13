@@ -28,7 +28,7 @@ return (
          onChange={(e)=>{setUTag(e.target.value)}}/></form> 
           <i> select tags</i>{mapAiTags}
         
-          <div className="container">
+          <div className="cont">
           {tags?.map(item=>{return (<small key={Math.random()}><i className="fas fa-tag"></i>{item}</small>)})}
           </div>{ tags.length!==0?<button onClick={(e)=>{
       theme.setShowAiTags(false)     
@@ -50,7 +50,7 @@ body: JSON.stringify(
 theme.setAUser([res])
     history.push('/author')
 })
-}}>Sumbit</button>:<button disabled={true}>Submit</button>}<button onClick={(e)=>{
+}}>Submit</button>:<button disabled={true}>Submit</button>}<button onClick={(e)=>{
     theme.setShowAiTags(false)
     fetch(`/users/${theme.userStuff[0].id}`)
     .then(res=>res.json())

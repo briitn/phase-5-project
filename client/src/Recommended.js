@@ -7,34 +7,31 @@ const history=useHistory()
 const eArray=[]
 const getLocTag=localStorage.getItem('tag')
 console.log(theme.tagName)
-useEffect(()=>{
-
-    theme.setTagName(getLocTag)
-    
-    fetch("/recommend",
-    {method:"POST",
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify(
-        {
-      name: theme.tagName
-        }
-    )
-    
-    
-    })
-    .then(res=>res.json())
-    .then(res=>{
+useEffect(async () => {
+    theme.setTagName(getLocTag);
   
-  theme.setRecommendedStuff(res)
-    })
+    try {
+      const response = await fetch("/recommend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: theme.tagName,
+        }),
+      });
   
-  },[])
+      const res = await response.json();
   
-const mapRecommendedStuff=theme.recommendedStuff?.slice(0,2).map(item=>{
+      theme.setRecommendedStuff(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+  
+const mapRecommendedStuff=theme?.recommendedStuff?.slice(0,2).map(item=>{
     eArray.push(item.user)
-    return(<div key={item.id} >
+    return(<div key={item.id}  >
         <hr></hr>
-      <div className="cont">
+      <div >
        <span>  <img src={item.user.image_url} 
             alt='authours proifile'
             className='profilePic'/>
@@ -80,10 +77,11 @@ fetch('/views',{
 
     </div>)
 })
+
 const filteredAuthor=eArray.filter(item=>{return item.username!==theme.currentUser})
 const authors=[...new Set(filteredAuthor)]
 return(
-  <div>
+  <div className="container">
     {mapRecommendedStuff}
     <hr></hr>
         <div> <b>Recommended Author</b>
