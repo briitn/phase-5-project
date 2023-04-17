@@ -271,7 +271,11 @@ padding: 50px;
   margin: 10px 0;
 
 }
-
+.likes{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .sc{   
   text-align: center;
   padding-top: 15px;}
@@ -413,8 +417,9 @@ white-space: pre-wrap
 }
 #blog-foot{
 
-position:absolute;
-left: 630px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 
@@ -611,7 +616,11 @@ textarea {
 .App-link {
   color: #61dafb;
 }
-
+.holdComments{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -47,7 +47,8 @@ item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): localStorage
 <div className="pubBtn" ><span  >
  <em> 
    
-{theme.isLoggedIn?<p onClick={(e)=>fetch('/views',{
+{theme.isLoggedIn?<p className="likebtn"
+onClick={(e)=>fetch('/views',{
     method:"PATCH",
     headers:{"Content-Type":"application/json"},
     body: JSON.stringify(
@@ -69,7 +70,8 @@ item.tags.length!==0?localStorage.setItem('tag',item.tags[0].name): localStorage
 
        alert(err.errors)})
 }
-}) }>❤️{item.likes}</p>:<em onClick={(e)=>{ 
+}) }>❤️{item.likes}</p>:<em className="likes"
+ onClick={(e)=>{ 
 theme.setFromAblog(true)
 localStorage.setItem('fromBlog', "Create an account to like post" )
 history.push('/signup')

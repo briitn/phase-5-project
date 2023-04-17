@@ -32,8 +32,8 @@ useEffect(()=>{
 
 
 
-return (<span>
-    {!showComments?<span className="holdComments" >
+return (<div className="holdComments">
+    {!showComments?<span >
  
 <em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>  :  <div  className="forCs">
  <button id='x' onClick={()=>{setShowComments(false)}}>x</button>
@@ -76,6 +76,6 @@ return (<span>
     {mapComments}
     
      </div> }
-</span>)
+</div>)
 }
 export default Comments
