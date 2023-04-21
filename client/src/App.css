@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .App-logo {
   height: 30vmin;
   }
@@ -8,6 +8,7 @@
   #profile{
   left: 70%;
   }
+
   #channel{
   position: relative;
   left: 0px;
@@ -93,29 +94,39 @@
   padding-top: 10px;
   }
   .box{
-  max-width: 300px;
-  margin: 40px auto;
-  padding: 8px;
-  position: relative;
-  top: -200px;
+  width: 500px;
+position: relative;
+left: 0px;
 
   max-height: auto;
   }
   .sidenav {
-  position: -webkit-sticky; 
-
-  position: sticky;
-  width: 150px;
+display: none;
+  width: 80px;
   height: fit-content;
-  top: 0;
-  left: 70%;
+position: relative;
+  top: 5000;
+
+  }
+.dox{
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 16px;
+    width: 0%;
+    position: relative;
+    top: 800px;
+   left: 0px;
+   right: 0px;
+    max-height: auto;
+  }
+  .home__div{
+    flex-direction: column;
   }
   .sidenav2{
-  position: -webkit-sticky; 
-  position: sticky;
-  width: 40%;
+position: unset;
+  width: 0%;
   height: 150px;
-  bottom: 0px;
+  
   left: 70%;
   border-radius: 10px;
   border: 0.1px solid #000000;
@@ -142,15 +153,18 @@
 }
 #profile{
   position: relative;
-
+cursor: pointer;
 left: 800px;
 
 }
 #channel{position: relative;
   font-size: 25px;
   left:0px;
-  top: 0px;}
-  .channel2{
+  top: 0px;
+  color: rgb(58, 58, 232);
+}
+
+ .channel2{
     position: relative;
     left: 500px;
   }
@@ -256,6 +270,7 @@ padding: 50px;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
   font-size: 23px;
+  
 }
 
 .authors{
@@ -271,11 +286,7 @@ padding: 50px;
   margin: 10px 0;
 
 }
-.likes{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .sc{   
   text-align: center;
   padding-top: 15px;}
@@ -417,9 +428,8 @@ white-space: pre-wrap
 }
 #blog-foot{
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+position:absolute;
+left: 630px;
 
 }
 
@@ -616,11 +626,7 @@ textarea {
 .App-link {
   color: #61dafb;
 }
-.holdComments{
-  display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
