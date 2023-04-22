@@ -41,9 +41,9 @@ const mapRecommendedStuff=theme?.recommendedStuff?.slice(0,2).map(item=>{
        <h3>{item.title}</h3>
             <p>{`${item.blog.slice(0,item.blog.length*0.05)}...`}</p>
 
-<p  onClick={()=>{theme.setReadBlog([item])
-
-
+<p 
+    style={{cursor:"pointer"}} 
+onClick={()=>{theme.setReadBlog([item])
 item.tags.length!==0?theme.setTagName(item.tags[0].name): theme.setTagName()
 localStorage.clear()
 fetch('/views',{
@@ -91,10 +91,7 @@ return(
             fetch(`/users/${item.id}`)
             .then(res=>res.json())
             .then(res=>{
-            
-        
                 theme.setAUser([res])
-                    
                             history.push('/author')
                          })
      }}> 

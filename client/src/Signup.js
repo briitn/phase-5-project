@@ -76,7 +76,9 @@ function Signup(){
       }
       return (
         <Fragment>
-            <header><h1 onClick={()=>{
+            <header><h1 
+          style={{cursor:"pointer"}}
+            onClick={()=>{
                       localStorage.clear()
             history.push('/')
               }}>Channel🌐</h1></header>
