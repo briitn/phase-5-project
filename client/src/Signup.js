@@ -12,12 +12,12 @@ function Signup(){
       =useState('')
      const [bio, setBio]=useState('')
      const [loading, setLoading]=useState(false)
-  console.log(imageUrl)
+  
      const history=useHistory()
 
       function changeSubmit(e){
           e.preventDefault()
-       
+          setLoading(true)
           fetch ("/users/", {
               method: "POST",
               headers: {"Content-Type": "application/json"},
@@ -31,12 +31,10 @@ function Signup(){
           }) .then((res)=>{
             if (res.ok){
                 res.json().then((res)=>{ 
-                  console.log(res)
                   theme.setUserStuff([res])
                   theme.setId(res.id)
                   theme.setCurrentUser(res.username)
             theme.setIsLoggedIn(true)
-                    setLoading(true)
                     setTimeout(() => {
                       theme.setIsLoggedIn(true)
                       fromBlog?history.push('/blog'):history.push('/')
@@ -46,6 +44,7 @@ function Signup(){
             })}
             else {
                 res.json().then((err) => {
+                  setLoading(false)
                 alert(err.errors)})
             }
 
