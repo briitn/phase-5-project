@@ -70,7 +70,7 @@ return (
                  <b>{item.title}</b>
                  <p>{`${item.blog.slice(0,item.blog.length*0.10)}...`}</p>
 <p>👁{item.views}</p>
-<p  onClick={()=>{
+<p style={{cursor:'pointer'}} onClick={()=>{
 
 fetch('/views',{
     method:"PATCH",
@@ -94,14 +94,18 @@ fetch('/views',{
 
 
 }}>read more</p>
-{id===theme.userId?<span><p onClick={(e)=>{
+{id===theme.userId?<span><p 
+style={{cursor:'pointer'}}
+onClick={(e)=>{
     theme.setShowAiTags(false)
     // set local storage so blog that is beign edited does not go away on refresh
 localStorage.setItem('editingBlog', item.blog)
 localStorage.setItem('editingTitle', item.title )
 localStorage.setItem('id', JSON.stringify(item.id) )
 history.push('/createBlogs')}}>edit</p>
-<p onClick={(e)=>{
+<p 
+style={{cursor:'pointer'}}
+onClick={(e)=>{
    if( window.confirm("Are you sure you want to delete your post?")){
     fetch(`posts/${item.id}`,
     {

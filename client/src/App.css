@@ -70,6 +70,14 @@
   border: 0.1px solid #000000;
   padding: 30px;
   }
+  #blog-foot{
+
+ position: relative;
+ right: 250px;
+    
+ }
+
+
   .appName {
   padding-top: 20px;
   color: #8C55AA;
@@ -149,7 +157,7 @@ position: unset;
 #write{
   position: relative;
   left: 700px;
-
+  cursor: pointer;
 }
 #profile{
   position: relative;
@@ -158,6 +166,7 @@ left: 800px;
 
 }
 #channel{position: relative;
+  cursor: pointer;
   font-size: 25px;
   left:0px;
   top: 0px;
@@ -167,8 +176,10 @@ left: 800px;
  .channel2{
     position: relative;
     left: 500px;
+    cursor: pointer;
   }
   #channel3{
+    cursor: pointer;
     margin: auto;
     width: 100%;
     border: 1px solid rgb(12, 12, 12);
@@ -187,9 +198,11 @@ left: 800px;
     margin-right: 16px;
     font-size: 17px;
   }
-  
+  em{
+    cursor: pointer;
+  }
 #signIn{
-
+  cursor: pointer;
   position: relative;
 color: #0c7091;
   left: 700px;
@@ -204,6 +217,7 @@ border-radius: 30px;
 
 }
 #signUp{
+  cursor: pointer;
   position: relative;
   color: #0c6782;
   right: -800px;
@@ -216,14 +230,13 @@ border-radius: 30px;
 #logout{
   position: relative;
   background-color: transparent;
- 
+  cursor: pointer;
   left: 750px;
   border: none;
   color: #bd3737;
 }
 
 .container{
-
   border-radius: 1px;
   padding: 10px;
   margin: 10px 0;
@@ -236,7 +249,6 @@ transition: all 2s;
   opacity: 1;
 }
 .cont{
-
   border-radius: 1px;
   padding: 10px;
   margin: 10px 0;
@@ -359,11 +371,9 @@ height: 50px;
 
 
 .dropdown-content {
-
   position: relative;
   top: -10px;
-left: 235px;
-
+  left: 235px;
   background-color: black;
   width: 180px;
   border-radius: 10px;
@@ -371,9 +381,6 @@ left: 235px;
   border-right-style: solid;
   border-bottom-style: solid;
   border-left-style: solid;
-
- 
-  
 }
 
 .dropdown-content  span  p {
@@ -384,6 +391,7 @@ color: #bab6b6;
   font-size: 12px;
   position: relative;
   bottom: 10px;
+  cursor: pointer;
 }
 .hTag{
   background-color: #c3fb40;
@@ -428,8 +436,7 @@ white-space: pre-wrap
 }
 #blog-foot{
 
-position:absolute;
-left: 630px;
+margin-left: 630px;
 
 }
 
@@ -471,7 +478,7 @@ color: white;
     padding: 10px;
     border-radius: 10px;
 }
-sc
+
 .pubBtn{
 
   position:relative;

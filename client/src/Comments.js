@@ -35,7 +35,7 @@ useEffect(()=>{
 return (<div className="holdComments">
     {!showComments?<span >
  
-<em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>  :  <div  className="forCs">
+<em onClick={()=>{setShowComments(true)}}>💬{comments?.length}</em></span>:<div className="forCs">
  <button id='x' onClick={()=>{setShowComments(false)}}>x</button>
  
   <textarea value={comment} 

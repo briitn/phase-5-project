@@ -23,17 +23,15 @@ const mapBlogs=theme.allBlogs?.map(item=>{
             <hr></hr>
             <img src={item.user?.image_url}
             alt='userImage' className="profilePic"/>
-           <em onClick={(e)=>{
-     
+           <em style={{cursor:"pointer"}}
+           onClick={(e)=>{
 fetch(`/users/${item.user.id}`)
 .then(res=>res.json())
 .then(res=>{
-
-
     theme.setAUser([res])
 history.push('/author')
 })
-           }}
+  }}
            >{item.user?.username}</em>
             <div><b>{item.title}</b>
             { item.tags?.length!==0?<div> {item.tags.map(item=>{
@@ -70,7 +68,7 @@ fetch('/views',{
        alert(err.errors)})
 }
 }) 
-}}>read more</p>
+}} style={{cursor:"pointer"}}>read more</p>
 
         </div>
     )
